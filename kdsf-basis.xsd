@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE schema [
+<!-- Was soll das hier? <!DOCTYPE schema [
 	<!ENTITY kdsf-owl "http://kerndatensatz-forschung.de/owl/Basis#">
-]>
+]>-->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:kdsf-basis="http://kerndatensatz-forschung.de/version1.2/technisches_datenmodell/xsd/kdsf-basis.xsd" xmlns:cf="urn:xmlns:org:eurocris:cerif-1.6-2" targetNamespace="http://kerndatensatz-forschung.de/version1.2/technisches_datenmodell/xsd/kdsf-basis.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.2">
 	<xs:import namespace="urn:xmlns:org:eurocris:cerif-1.6-2" schemaLocation="CERIF_1.6_2.xsd"/>
 	<xs:element name="kdsf-basis">
@@ -145,7 +145,7 @@
 					<xs:element name="Koordinationsrolle" type="xs:boolean" minOccurs="0"/>
 					<xs:element name="KoordinatorEinrichtung" type="xs:string" minOccurs="0"/>
 					<xs:element name="Foerderorganisation" type="xs:string" minOccurs="0"/>
-					<xs:element name="WissenschaftlicheProjektleiter/-in" type="xs:string" minOccurs="0"/>
+					<xs:element name="WissenschaftlicheProjektleiter-in" type="xs:string" minOccurs="0"/>
 					<xs:element name="ZwecksdesProjekts" type="xs:string" minOccurs="0"/>
 				</xs:sequence>
 			</xs:extension>
