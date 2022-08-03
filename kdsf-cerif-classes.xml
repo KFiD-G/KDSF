@@ -4,411 +4,413 @@
 
 <CERIF xmlns="urn:xmlns:org:eurocris:cerif-1.6-2" date="2021-04-13" sourceDatabase="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:xmlns:org:eurocris:cerif-1.6-2 CERIF_1.6_2.xsd">
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:cfPers_Country</cfClassSchemeID>
+		<cfClassSchemeId>kdsf:cfPers_Country</cfClassSchemeId>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für die Beziehung zwischen Personen und Staaten</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:Staatsangehoerigkeit</cfClassID>
+			<cfClassId>kdsf:Staatsangehoerigkeit</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:hatPromotionsberechtigungAus</cfClassID>
+			<cfClassId>kdsf:hatPromotionsberechtigungAus</cfClassId>
 		</cfClass>
 	</cfClassScheme>
 	
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Qualifikation</cfClassSchemeID>
+		<cfClassSchemeId>kdsf:Qualifikation</cfClassSchemeId>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Qualifikationen</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:Habilitiert</cfClassID>
+			<cfClassId>kdsf:Habilitiert</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Promoviert</cfClassID>
+			<cfClassId>kdsf:Promoviert</cfClassId>
 		</cfClass>
 	</cfClassScheme>
 
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Qualifizierungsverfahren</cfClassSchemeID>
+		<cfClassSchemeId>kdsf:Qualifizierungsverfahren</cfClassSchemeId>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Qualifizierungsverfahren</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:Habilitation</cfClassID>
+			<cfClassId>kdsf:Habilitation</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Promotion</cfClassID>
+			<cfClassId>kdsf:Promotion</cfClassId>
 		</cfClass>
 	</cfClassScheme>
 	
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Faecherklassifikation</cfClassSchemeID>
+		<cfClassSchemeId>kdsf:Faecherklassifikation</cfClassSchemeId>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Fächer</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:BeispielFach1</cfClassID>
+			<cfClassId>kdsf:BeispielFach1</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:BeispielFach2</cfClassID>
+			<cfClassId>kdsf:BeispielFach2</cfClassId>
 		</cfClass>
 	</cfClassScheme>
 	
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Forschungsfelder</cfClassSchemeID>
+		<cfClassSchemeId>kdsf:Forschungsfelder</cfClassSchemeId>
+		<!-- Hier Verweis auf Forschungsfelderklassifikation einfügen? -->
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Forschungsfelder</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:BeispielForschungsfeld1</cfClassID>
+			<cfClassId>kdsf:BeispielForschungsfeld1</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:BeispielForschungsfeld2</cfClassID>
+			<cfClassId>kdsf:BeispielForschungsfeld2</cfClassId>
 		</cfClass>
 	</cfClassScheme>
 	
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Befristung</cfClassSchemeID>
+		<cfClassSchemeId>kdsf:Befristung</cfClassSchemeId>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Befristungen</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:Befristet</cfClassID>
+			<cfClassId>kdsf:Befristet</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Unbefristet</cfClassID>
+			<cfClassId>kdsf:Unbefristet</cfClassId>
 		</cfClass>
 	</cfClassScheme>
 	
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Finanzierungsform</cfClassSchemeID>
+		<cfClassSchemeId>kdsf:Finanzierungsform</cfClassSchemeId>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Finanzierungsformen</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:Drittmittel</cfClassID>
+			<cfClassId>kdsf:Drittmittel</cfClassId>
 			<cfDescr cfTrans="o" cfLangCode="de">Drittmittel</cfDescr>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:GrundmittelUndInstitutionelleMittel</cfClassID>
+			<cfClassId>kdsf:GrundmittelUndInstitutionelleMittel</cfClassId>
 			<cfDescr cfTrans="o" cfLangCode="de">Grundmittel und institutionelle Mittel</cfDescr>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Mischfinanzierung</cfClassID>
+			<cfClassId>kdsf:Mischfinanzierung</cfClassId>
 			<cfDescr cfTrans="o" cfLangCode="de">Mischfinanzierung</cfDescr>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Sondermittel</cfClassID>
+			<cfClassId>kdsf:Sondermittel</cfClassId>
 			<cfDescr cfTrans="o" cfLangCode="de">Sondermittel</cfDescr>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Sonstige Mittel</cfClassID>
+			<cfClassId>kdsf:Sonstige Mittel</cfClassId>
 			<cfDescr cfTrans="o" cfLangCode="de">Sonstige Mittel</cfDescr>
 		</cfClass>
 	</cfClassScheme>
 	
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Personalkategorie</cfClassSchemeID>
+		<cfClassSchemeId>kdsf:Personalkategorie</cfClassSchemeId>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Personalkategorien</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:SonstigesPersonal</cfClassID>
+			<cfClassId>kdsf:SonstigesPersonal</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Verwaltungspersonal</cfClassID>
+			<cfClassId>kdsf:Verwaltungspersonal</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:WissenschaftlichesUndKuenstlerischesPersonal</cfClassID>
+			<cfClassId>kdsf:WissenschaftlichesUndKuenstlerischesPersonal</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Professor/-innen</cfClassID>
+			<cfClassId>kdsf:Professor/-innen</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:WissenschaftlicheOderKuenstlerischeHilfskraefte</cfClassID>
+			<cfClassId>kdsf:WissenschaftlicheOderKuenstlerischeHilfskraefte</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:WissenschaftlicheUndKuenstlerischeMitarbeiter/-innen</cfClassID>
+			<cfClassId>kdsf:WissenschaftlicheUndKuenstlerischeMitarbeiter/-innen</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:SonstigesWissenschaftlichesUndKuenstlerischesPersonal</cfClassID>
+			<cfClassId>kdsf:SonstigesWissenschaftlichesUndKuenstlerischesPersonal</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:WissenschaftsunterstuetzendesPersonal</cfClassID>
+			<cfClassId>kdsf:WissenschaftsunterstuetzendesPersonal</cfClassId>
 		</cfClass>
 	</cfClassScheme>
 
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Besoldung / Vergütung</cfClassSchemeID>
+		<cfClassSchemeId>kdsf:Besoldung / Vergütung</cfClassSchemeId>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Besoldungen und Vergütungen</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:B1</cfClassID>
+			<cfClassId>kdsf:B1</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:B2</cfClassID>
+			<cfClassId>kdsf:B2</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:B3</cfClassID>
+			<cfClassId>kdsf:B3</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:B4</cfClassID>
+			<cfClassId>kdsf:B4</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:B5</cfClassID>
+			<cfClassId>kdsf:B5</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:B6</cfClassID>
+			<cfClassId>kdsf:B6</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:B7</cfClassID>
+			<cfClassId>kdsf:B7</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:B8</cfClassID>
+			<cfClassId>kdsf:B8</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:B9</cfClassID>
+			<cfClassId>kdsf:B9</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:B10</cfClassID>
+			<cfClassId>kdsf:B10</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:B11</cfClassID>
+			<cfClassId>kdsf:B11</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:W1</cfClassID>
+			<cfClassId>kdsf:W1</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:C2</cfClassID>
+			<cfClassId>kdsf:C2</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:W2/C3</cfClassID>
+			<cfClassId>kdsf:W2/C3</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:W3/C4</cfClassID>
+			<cfClassId>kdsf:W3/C4</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Sonstige Besoldung / Vergütung</cfClassID>
+			<cfClassId>kdsf:Sonstige Besoldung / Vergütung</cfClassId>
 		</cfClass>
 	</cfClassScheme>	
 	
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Professorenbezeichnung</cfClassSchemeID>
+		<cfClassSchemeId>kdsf:Professorenbezeichnung</cfClassSchemeId>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Bezeichnungen der Professor/-innen</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:Professor/-innen</cfClassID>
+			<cfClassId>kdsf:Professor/-innen</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Sonstige Professor/-innen</cfClassID>
+			<cfClassId>kdsf:Sonstige Professor/-innen</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Juniorprofessor/-innen</cfClassID>
+			<cfClassId>kdsf:Juniorprofessor/-innen</cfClassId>
 		</cfClass>	
 	</cfClassScheme>
 	
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Taetigkeitsart</cfClassSchemeID>
+		<cfClassSchemeId>kdsf:Taetigkeitsart</cfClassSchemeId>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Tätigskeitsarten</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:Hauptberuflich</cfClassID>
+			<cfClassId>kdsf:Hauptberuflich</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Nebenberuflich</cfClassID>
+			<cfClassId>kdsf:Nebenberuflich</cfClassId>
 		</cfClass>
 	</cfClassScheme>
 
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Kooperation</cfClassSchemeID>
+		<cfClassSchemeId>kdsf:Kooperation</cfClassSchemeId>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Kooperationsarten bei Strukturierten Promotionsprogrammen</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:AUF</cfClassID>
+			<cfClassId>kdsf:AUF</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:FH</cfClassID>
+			<cfClassId>kdsf:FH</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Universitaet</cfClassID>
+			<cfClassId>kdsf:Universitaet</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Sonstige</cfClassID>
+			<cfClassId>kdsf:Sonstige</cfClassId>
 		</cfClass>
 	</cfClassScheme>
 		
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Mittelgeber/in</cfClassSchemeID>
+		<!-- Heißt im kdsf-basis.xsd kdsf-basis:MittelgeberId-->
+		<cfClassSchemeId>kdsf:Mittelgeber/in</cfClassSchemeId>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Mittelgeber/in</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:Bund</cfClassID>
+			<cfClassId>kdsf:Bund</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Bundeslaender</cfClassID>
+			<cfClassId>kdsf:Bundeslaender</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:DFG</cfClassID>
+			<cfClassId>kdsf:DFG</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:EuUndSonstigeInternationaleOrganisationen</cfClassID>
+			<cfClassId>kdsf:EuUndSonstigeInternationaleOrganisationen</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:EU</cfClassID>
+			<cfClassId>kdsf:EU</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:SonstigeInternationaleOrganisationen</cfClassID>
+			<cfClassId>kdsf:SonstigeInternationaleOrganisationen</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:GewerblicheWirtschaftUndSonstigePrivateBereiche</cfClassID>
+			<cfClassId>kdsf:GewerblicheWirtschaftUndSonstigePrivateBereiche</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:NichtErklaert</cfClassID>
+			<cfClassId>kdsf:NichtErklaert</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:NichtErklaertPrivateMittelgeber</cfClassID>
+			<cfClassId>kdsf:NichtErklaertPrivateMittelgeber</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:NichtErklaertOeffentlicheMittelgeber</cfClassID>
+				<cfClassId>kdsf:NichtErklaertOeffentlicheMittelgeber</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:SonstigeDrittmittelgeber/-in</cfClassID>
+			<cfClassId>kdsf:SonstigeDrittmittelgeber/-in</cfClassId>
 		</cfClass>
 	</cfClassScheme>
 	
 		<cfClassScheme>
-		<cfClassSchemeID>kdsf:Qualifikationsschrift</cfClassSchemeID>
+		<cfClassSchemeId>kdsf:Qualifikationsschrift</cfClassSchemeId>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Qualifikationsschrift</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:Dissertation</cfClassID>
+			<cfClassId>kdsf:Dissertation</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Habilitationsschrift</cfClassID>
+			<cfClassId>kdsf:Habilitationsschrift</cfClassId>
 		</cfClass>
 	</cfClassScheme>	
 	<cfClassScheme>
 	
-		<cfClassSchemeID>kdsf:Dokumenttyp</cfClassSchemeID>
+		<cfClassSchemeId>kdsf:Dokumenttyp</cfClassSchemeId>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Dokumenttypen</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:Editorial</cfClassID>
+			<cfClassId>kdsf:Editorial</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:LetterToTheEditor</cfClassID>
+			<cfClassId>kdsf:LetterToTheEditor</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:MeetingAbstract</cfClassID>
+			<cfClassId>kdsf:MeetingAbstract</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Rezension</cfClassID>
+			<cfClassId>kdsf:Rezension</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Review</cfClassID>
+			<cfClassId>kdsf:Review</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Bibliographie</cfClassID>
+			<cfClassId>kdsf:Bibliographie</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:WissenschaftlicherArtikel</cfClassID>
+			<cfClassId>kdsf:WissenschaftlicherArtikel</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:SonstigeDokumentyp</cfClassID>
+			<cfClassId>kdsf:SonstigeDokumentyp</cfClassId>
 		</cfClass>
 	</cfClassScheme>	
 	
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Publikationstyp</cfClassSchemeID>
+		<cfClassSchemeId>kdsf:Publikationstyp</cfClassSchemeId>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Publikationstypen</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:ArbeitspapierForschungsbericht</cfClassID>
+			<cfClassId>kdsf:ArbeitspapierForschungsbericht</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Artikel</cfClassID>
+			<cfClassId>kdsf:Artikel</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Preprint</cfClassID>
+			<cfClassId>kdsf:Preprint</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Journalartikel</cfClassID>
+			<cfClassId>kdsf:Journalartikel</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Sammelbandbeitrag</cfClassID>
+			<cfClassId>kdsf:Sammelbandbeitrag</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:BeitraegeInterviewsInNicht-wissenschaftlichenMedien</cfClassID>
+			<cfClassId>kdsf:BeitraegeInterviewsInNicht-wissenschaftlichenMedien</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:BeitragInWissenschaftlichenBlogs</cfClassID>
+			<cfClassId>kdsf:BeitragInWissenschaftlichenBlogs</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Buch</cfClassID>
+			<cfClassId>kdsf:Buch</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Monographie</cfClassID>
+			<cfClassId>kdsf:Monographie</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Sammelband</cfClassID>
+			<cfClassId>kdsf:Sammelband</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Konferenzband</cfClassID>
+			<cfClassId>kdsf:Konferenzband</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:HerausgeberschaftEinesSonderheftsEinerZeitschrift</cfClassID>
+			<cfClassId>kdsf:HerausgeberschaftEinesSonderheftsEinerZeitschrift</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Forschungsdaten</cfClassID>
+			<cfClassId>kdsf:Forschungsdaten</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Software</cfClassID>
+			<cfClassId>kdsf:Software</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Konferenzbeitrag</cfClassID>
+			<cfClassId>kdsf:Konferenzbeitrag</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Konferenzpaper</cfClassID>
+			<cfClassId>kdsf:Konferenzpaper</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Konferenzposter</cfClassID>
+			<cfClassId>kdsf:Konferenzposter</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:WissenschaftlicheVortragsfolien</cfClassID>
+			<cfClassId>kdsf:WissenschaftlicheVortragsfolien</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:MeetingAbstract</cfClassID>
+			<cfClassId>kdsf:MeetingAbstract</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:WissenschaftlicheVortragsfolien</cfClassID>
+			<cfClassId>kdsf:WissenschaftlicheVortragsfolien</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:IntegrierendeRessource</cfClassID>
+			<cfClassId>kdsf:IntegrierendeRessource</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:SonstigerPublikationstyp</cfClassID>
+			<cfClassId>kdsf:SonstigerPublikationstyp</cfClassId>
 		</cfClass>
 	</cfClassScheme>	
 	
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Forschungsinfrastrukturart</cfClassSchemeID>
+		<cfClassSchemeId>kdsf:Forschungsinfrastrukturart</cfClassSchemeId>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Forschungsinfrastrukturarten</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:Lokal</cfClassID>
+			<cfClassId>kdsf:Lokal</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Verteilt</cfClassID>
+			<cfClassId>kdsf:Verteilt</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Virtuell</cfClassID>
+			<cfClassId>kdsf:Virtuell</cfClassId>
 		</cfClass>
 	</cfClassScheme>	
 	
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Forschungsinfrastrukturtyp</cfClassSchemeID>
+		<cfClassSchemeId>kdsf:Forschungsinfrastrukturtyp</cfClassSchemeId>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Forschungsinfrastrukturtypen</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:GrossgeraeteUndInstrumente</cfClassID>
+			<cfClassId>kdsf:GrossgeraeteUndInstrumente</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:InformationsUndKommunikationsinfrastrukturen</cfClassID>
+			<cfClassId>kdsf:InformationsUndKommunikationsinfrastrukturen</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:SonstigerTyp</cfClassID>
+			<cfClassId>kdsf:SonstigerTyp</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Wissensressourcen</cfClassID>
+			<cfClassId>kdsf:Wissensressourcen</cfClassId>
 		</cfClass>
 	</cfClassScheme>	
 	
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Zugangsart</cfClassSchemeID>
+		<cfClassSchemeId>kdsf:Zugangsart</cfClassSchemeId>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Zugangsarten bei Forschungsinfrastrukturen</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:OpenAccess</cfClassID>
+			<cfClassId>kdsf:OpenAccess</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:SharedAccess</cfClassID>
+			<cfClassId>kdsf:SharedAccess</cfClassId>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:UserAccess</cfClassID>
+			<cfClassId>kdsf:UserAccess</cfClassId>
 		</cfClass>
 	</cfClassScheme>	
 </CERIF>
