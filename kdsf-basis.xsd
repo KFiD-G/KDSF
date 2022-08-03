@@ -138,14 +138,17 @@
 					<xs:element ref="kdsf-basis:FachId" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element ref="kdsf-basis:ForschungsfeldId" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element ref="kdsf-basis:MittelgeberId" minOccurs="0" maxOccurs="unbounded"/>
+					<!-- Heißt im Basisdatenmodell "Drittmittelgeber/-in"-->
 					<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element ref="kdsf-basis:ÜbergeordnetesProjektId" minOccurs="0" maxOccurs="unbounded"/>
+					<!-- Laut Übersicht der Basisdaten müsste es noch Bewilligungssumme geben -->
 					<xs:element name="Drittmitteleinnahmen" type="kdsf-basis:Betrag__Type" minOccurs="0"/>
 					<xs:element name="Drittmittelertraege" type="kdsf-basis:Betrag__Type" minOccurs="0"/>
 					<xs:element name="Koordinationsrolle" type="xs:boolean" minOccurs="0"/>
 					<xs:element name="KoordinatorEinrichtung" type="xs:string" minOccurs="0"/>
 					<xs:element name="Foerderorganisation" type="xs:string" minOccurs="0"/>
 					<xs:element name="WissenschaftlicheProjektleiter-in" type="xs:string" minOccurs="0"/>
+					<!-- '/' rausgenommen -->
 					<xs:element name="ZwecksdesProjekts" type="xs:string" minOccurs="0"/>
 				</xs:sequence>
 			</xs:extension>
