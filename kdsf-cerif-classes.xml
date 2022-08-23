@@ -2,7 +2,7 @@
 
 <!-- edited with XMLSpy v2015 sp1 (x64) (http://www.altova.com) by Daniel Mertens (Fraunhofer Gesellschaft) -->
 
-<CERIF xmlns="urn:xmlns:org:eurocris:cerif-1.6-2" date="2015-10-12" sourceDatabase="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:xmlns:org:eurocris:cerif-1.6-2 CERIF_1.6_2.xsd">
+<CERIF xmlns="urn:xmlns:org:eurocris:cerif-1.6-2" date="2021-04-13" sourceDatabase="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:xmlns:org:eurocris:cerif-1.6-2 CERIF_1.6_2.xsd">
 	<cfClassScheme>
 		<cfClassSchemeID>kdsf:cfPers_Country</cfClassSchemeID>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für die Beziehung zwischen Personen und Staaten</cfDescr>
@@ -88,6 +88,10 @@
 			<cfClassID>kdsf:Sondermittel</cfClassID>
 			<cfDescr cfTrans="o" cfLangCode="de">Sondermittel</cfDescr>
 		</cfClass>
+		<cfClass>
+			<cfClassID>kdsf:Sonstige Mittel</cfClassID>
+			<cfDescr cfTrans="o" cfLangCode="de">Sonstige Mittel</cfDescr>
+		</cfClass>
 	</cfClassScheme>
 	
 	<cfClassScheme>
@@ -103,13 +107,13 @@
 			<cfClassID>kdsf:WissenschaftlichesUndKuenstlerischesPersonal</cfClassID>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Professoren</cfClassID>
+			<cfClassID>kdsf:Professor/-innen</cfClassID>
 		</cfClass>
 		<cfClass>
 			<cfClassID>kdsf:WissenschaftlicheOderKuenstlerischeHilfskraefte</cfClassID>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:WissenschaftlicheUndKuenstlerischeMitarbeiter</cfClassID>
+			<cfClassID>kdsf:WissenschaftlicheUndKuenstlerischeMitarbeiter/-innen</cfClassID>
 		</cfClass>
 		<cfClass>
 			<cfClassID>kdsf:SonstigesWissenschaftlichesUndKuenstlerischesPersonal</cfClassID>
@@ -120,8 +124,8 @@
 	</cfClassScheme>
 
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Besoldung</cfClassSchemeID>
-		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Besoldungen</cfDescr>
+		<cfClassSchemeID>kdsf:Besoldung / Vergütung</cfClassSchemeID>
+		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Besoldungen und Vergütungen</cfDescr>
 		<cfClass>
 			<cfClassID>kdsf:B1</cfClassID>
 		</cfClass>
@@ -167,19 +171,22 @@
 		<cfClass>
 			<cfClassID>kdsf:W3/C4</cfClassID>
 		</cfClass>
+		<cfClass>
+			<cfClassID>kdsf:Sonstige Besoldung / Vergütung</cfClassID>
+		</cfClass>
 	</cfClassScheme>	
 	
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Professurenbezeichnung</cfClassSchemeID>
-		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Bezeichnungen der Professuren</cfDescr>
+		<cfClassSchemeID>kdsf:Professorenbezeichnung</cfClassSchemeID>
+		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Bezeichnungen der Professor/-innen</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:Professuren</cfClassID>
+			<cfClassID>kdsf:Professor/-innen</cfClassID>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Sonstige Professuren</cfClassID>
+			<cfClassID>kdsf:Sonstige Professor/-innen</cfClassID>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Juniorprofessuren</cfClassID>
+			<cfClassID>kdsf:Juniorprofessor/-innen</cfClassID>
 		</cfClass>	
 	</cfClassScheme>
 	
@@ -212,8 +219,8 @@
 	</cfClassScheme>
 		
 	<cfClassScheme>
-		<cfClassSchemeID>kdsf:Mittelgeber</cfClassSchemeID>
-		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Mittelgeber</cfDescr>
+		<cfClassSchemeID>kdsf:Mittelgeber/in</cfClassSchemeID>
+		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Mittelgeber/in</cfDescr>
 		<cfClass>
 			<cfClassID>kdsf:Bund</cfClassID>
 		</cfClass>
@@ -245,7 +252,7 @@
 			<cfClassID>kdsf:NichtErklaertOeffentlicheMittelgeber</cfClassID>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:SonstigeDrittmittelgeber</cfClassID>
+			<cfClassID>kdsf:SonstigeDrittmittelgeber/-in</cfClassID>
 		</cfClass>
 	</cfClassScheme>
 	
@@ -264,9 +271,6 @@
 		<cfClassSchemeID>kdsf:Dokumenttyp</cfClassSchemeID>
 		<cfDescr cfTrans="o" cfLangCode="de">Klassen für Dokumenttypen</cfDescr>
 		<cfClass>
-			<cfClassID>kdsf:BibliographieDokumenttyp</cfClassID>
-		</cfClass>
-		<cfClass>
 			<cfClassID>kdsf:Editorial</cfClassID>
 		</cfClass>
 		<cfClass>
@@ -276,16 +280,19 @@
 			<cfClassID>kdsf:MeetingAbstract</cfClassID>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:QuelleneditionDokumenttyp</cfClassID>
-		</cfClass>
-		<cfClass>
 			<cfClassID>kdsf:Rezension</cfClassID>
 		</cfClass>
 		<cfClass>
 			<cfClassID>kdsf:Review</cfClassID>
 		</cfClass>
 		<cfClass>
+			<cfClassID>kdsf:Bibliographie</cfClassID>
+		</cfClass>
+		<cfClass>
 			<cfClassID>kdsf:WissenschaftlicherArtikel</cfClassID>
+		</cfClass>
+		<cfClass>
+			<cfClassID>kdsf:SonstigeDokumentyp</cfClassID>
 		</cfClass>
 	</cfClassScheme>	
 	
@@ -299,7 +306,7 @@
 			<cfClassID>kdsf:Artikel</cfClassID>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:ePaper</cfClassID>
+			<cfClassID>kdsf:Preprint</cfClassID>
 		</cfClass>
 		<cfClass>
 			<cfClassID>kdsf:Journalartikel</cfClassID>
@@ -311,19 +318,19 @@
 			<cfClassID>kdsf:BeitraegeInterviewsInNicht-wissenschaftlichenMedien</cfClassID>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Buch</cfClassID>
+			<cfClassID>kdsf:BeitragInWissenschaftlichenBlogs</cfClassID>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:BibliographiePublikationstyp</cfClassID>
+			<cfClassID>kdsf:Buch</cfClassID>
 		</cfClass>
 		<cfClass>
 			<cfClassID>kdsf:Monographie</cfClassID>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:QuelleneditionPublikationstyp</cfClassID>
+			<cfClassID>kdsf:Sammelband</cfClassID>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Sammelband</cfClassID>
+			<cfClassID>kdsf:Konferenzband</cfClassID>
 		</cfClass>
 		<cfClass>
 			<cfClassID>kdsf:HerausgeberschaftEinesSonderheftsEinerZeitschrift</cfClassID>
@@ -332,16 +339,31 @@
 			<cfClassID>kdsf:Forschungsdaten</cfClassID>
 		</cfClass>
 		<cfClass>
-			<cfClassID>kdsf:Konferenzposter</cfClassID>
-		</cfClass>
-		<cfClass>
-			<cfClassID>kdsf:NeuerPublikationstyp</cfClassID>
-		</cfClass>
-		<cfClass>
 			<cfClassID>kdsf:Software</cfClassID>
 		</cfClass>
 		<cfClass>
+			<cfClassID>kdsf:Konferenzbeitrag</cfClassID>
+		</cfClass>
+		<cfClass>
+			<cfClassID>kdsf:Konferenzpaper</cfClassID>
+		</cfClass>
+		<cfClass>
+			<cfClassID>kdsf:Konferenzposter</cfClassID>
+		</cfClass>
+		<cfClass>
 			<cfClassID>kdsf:WissenschaftlicheVortragsfolien</cfClassID>
+		</cfClass>
+		<cfClass>
+			<cfClassID>kdsf:MeetingAbstract</cfClassID>
+		</cfClass>
+		<cfClass>
+			<cfClassID>kdsf:WissenschaftlicheVortragsfolien</cfClassID>
+		</cfClass>
+		<cfClass>
+			<cfClassID>kdsf:IntegrierendeRessource</cfClassID>
+		</cfClass>
+		<cfClass>
+			<cfClassID>kdsf:SonstigerPublikationstyp</cfClassID>
 		</cfClass>
 	</cfClassScheme>	
 	

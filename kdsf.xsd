@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://kerndatensatz-forschung.de/version1/technisches_datenmodell/xsd/kdsf.xsd" xmlns:kdsf="http://kerndatensatz-forschung.de/version1/technisches_datenmodell/xsd/kdsf.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:kdsf-basis="http://kerndatensatz-forschung.de/version1/technisches_datenmodell/xsd/kdsf-basis.xsd" xmlns:cf="urn:xmlns:org:eurocris:cerif-1.6-2" targetNamespace="http://kerndatensatz-forschung.de/version1/technisches_datenmodell/xsd/kdsf.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.1" vc:minVersion="1.1">
+<xs:schema xmlns="http://kerndatensatz-forschung.de/version1.2/technisches_datenmodell/xsd/kdsf.xsd" xmlns:kdsf="http://kerndatensatz-forschung.de/version1.2/technisches_datenmodell/xsd/kdsf.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:kdsf-basis="http://kerndatensatz-forschung.de/version1.2/technisches_datenmodell/xsd/kdsf-basis.xsd" xmlns:cf="urn:xmlns:org:eurocris:cerif-1.6-2" targetNamespace="http://kerndatensatz-forschung.de/version1.2/technisches_datenmodell/xsd/kdsf.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.2" vc:minVersion="1.2">
 	<xs:import namespace="urn:xmlns:org:eurocris:cerif-1.6-2" schemaLocation="CERIF_1.6_2.xsd"/>
-	<xs:import namespace="http://kerndatensatz-forschung.de/version1/technisches_datenmodell/xsd/kdsf-basis.xsd" schemaLocation="kdsf-basis.xsd"/>
+	<xs:import namespace="http://kerndatensatz-forschung.de/version1.2/technisches_datenmodell/xsd/kdsf-basis.xsd" schemaLocation="kdsf-basis.xsd"/>
 	<xs:annotation>
 		<xs:documentation>XML Schema für Kerndatensatz Forschung</xs:documentation>
 	</xs:annotation>
@@ -53,9 +53,8 @@
 									<xs:element ref="kdsf-basis:FinanzierungsformId" minOccurs="0"/>
 									<xs:element name="QualifikationId" type="cf:cfId__Type" minOccurs="0"/>
 									<xs:element ref="kdsf-basis:BefristungId" minOccurs="0"/>
-									<xs:element name="Staatsangehörigkeit" type="InlandAusland__Type" minOccurs="0"/>
+									<xs:element name="Staatsangehoerigkeit" type="InlandAusland__Type" minOccurs="0"/>
 									<xs:element name="Altersgruppe" type="kdsf-basis:Altersgruppe__Type" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:TaetigkeitsartId" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -83,7 +82,7 @@
 									<xs:element ref="kdsf-basis:FinanzierungsformId" minOccurs="0"/>
 									<xs:element name="QualifikationId" type="cf:cfId__Type" minOccurs="0"/>
 									<xs:element ref="kdsf-basis:BefristungId" minOccurs="0"/>
-									<xs:element name="Staatsangehörigkeit" type="InlandAusland__Type" minOccurs="0"/>
+									<xs:element name="Staatsangehoerigkeit" type="InlandAusland__Type" minOccurs="0"/>
 									<xs:element name="Altersgruppe" type="kdsf-basis:Altersgruppe__Type" minOccurs="0"/>
 									<xs:element ref="kdsf-basis:TaetigkeitsartId" minOccurs="0"/>
 								</xs:sequence>
@@ -213,11 +212,11 @@
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="Titel" type="xs:string" minOccurs="0"/>
-									<xs:element name="ZahlDerWeiblichenDoktoranden" type="xs:nonNegativeInteger" minOccurs="0"/>
+									<xs:element name="ZahlDerWeiblichenDoktorandinnen" type="xs:nonNegativeInteger" minOccurs="0"/>
 									<xs:element name="ZahlDerMaennlichenDoktoranden" type="xs:nonNegativeInteger" minOccurs="0"/>
-									<xs:element name="ZahlDerDoktorandenMitInlaendischerStaatsbuergerschaft" type="xs:nonNegativeInteger" minOccurs="0"/>
-									<xs:element name="ZahlDerDoktorandenMitAuslaendischerStaatsbuergerschaft" type="xs:nonNegativeInteger" minOccurs="0"/>
-									<xs:element name="BeteiligteInstitutionen" type="kdsf-basis:BeteiligteInstitutionen__Type" minOccurs="0"/>
+									<xs:element name="ZahlDerDoktorand/-innenMitInlaendischerStaatsbuergerschaft" type="xs:nonNegativeInteger" minOccurs="0"/>
+									<xs:element name="ZahlDerDoktorand/-innenMitAuslaendischerStaatsbuergerschaft" type="xs:nonNegativeInteger" minOccurs="0"/>
+									<xs:element name="BeteiligteEinrichtungen" type="kdsf-basis:BeteiligteEinrichtungen__Type" minOccurs="0"/>
 									<xs:element ref="kdsf-basis:FinanzierungsformId" minOccurs="0"/>
 									<xs:element ref="kdsf-basis:SprecherId" minOccurs="0"/>
 								</xs:sequence>
@@ -280,7 +279,7 @@
 									<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
 									<xs:element ref="kdsf-basis:ForschungsfeldId" minOccurs="0"/>
 									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
-									<xs:element name="DrittmittelprojektId" type="cf:cfId__Type" minOccurs="0"/>
+                  <xs:element name="DrittmittelprojektId" type="cf:cfId__Type" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -303,6 +302,9 @@
 									<xs:element name="Foerderkennzeichen" type="xs:string" minOccurs="0"/>
 									<xs:element name="Bewilligungssumme" type="kdsf-basis:Betrag__Type" minOccurs="0"/>
 									<xs:element name="TitelDesUebergeordnetenProjekts" type="xs:string" minOccurs="0"/>
+									<xs:element name="Foerderorganisation" type="xs:string" minOccurs="0"/>
+									<xs:element name="WissenschaftlicheProjektleiter/-in" type="xs:string" minOccurs="0"/>
+									<xs:element name="ZwecksdesProjekts" type="xs:string" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -347,7 +349,7 @@
 									<xs:element name="Titel" type="xs:string" minOccurs="0"/>
 									<xs:element name="JahrDerPrioritaetsbegruendendenErstanmeldung" type="xs:gYear" minOccurs="0"/>
 									<xs:element name="Veroeffentlichungsnummer" type="xs:string" minOccurs="0"/>
-									<xs:element name="Erfinder" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="Erfinder/-in" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -467,7 +469,7 @@
                   <xs:element ref="kdsf-basis:QualifikationsschriftId" minOccurs="0"/>
                   <xs:element ref="kdsf-basis:DokumenttypId" minOccurs="0"/>
                   <xs:element ref="kdsf-basis:PublikationstypId" minOccurs="0"/>
-                  <xs:element ref="kdsf-basis:RessourceId" minOccurs="0"/>
+                  <xs:element ref="kdsf-basis:DarstellungsformId" minOccurs="0"/>
                   <xs:element name="Foerderer" type="xs:string" minOccurs="0"/>
                   <xs:element name="FoerderkennzeichenDerPublikation" type="xs:string" minOccurs="0"/>
                 </xs:sequence>
@@ -488,7 +490,6 @@
 			<xs:element name="SchöpferId" type="cf:cfId__Type" minOccurs="0"/>
 			<xs:element name="PeerReviewed" type="xs:boolean" minOccurs="0"/>
 			<xs:element name="Veroeffentlichungsjahr" type="xs:gYear" minOccurs="0"/>
-			
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -508,8 +509,8 @@
           <xs:element ref="kdsf-basis:ArtDerForschungsinfrastrukturId" minOccurs="0"/>
           <xs:element ref="kdsf-basis:ArtDesZugangsId" minOccurs="0"/>
           <xs:element ref="kdsf-basis:Nutzung" minOccurs="0"/>
-          <xs:element name="Betreiber" type="xs:string" minOccurs="0"/>
-          <xs:element name="Koordinator" type="xs:string" minOccurs="0"/>
+          <xs:element name="Betreiberin" type="xs:string" minOccurs="0"/>
+          <xs:element name="Koordinatorin" type="xs:string" minOccurs="0"/>
           <xs:element ref="kdsf-basis:BetriebspersonalId" minOccurs="0"/>
           <xs:element name="Publikationen" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
                 </xs:sequence>
