@@ -7,20 +7,20 @@
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY Meta "http://kerndatensatz-forschung.de/owl/Meta#" >
-    <!ENTITY Meta2 "http://kerndatensatz-forschung.de/version1.2/technisches_datenmodell/owl/Meta#" >
+    <!ENTITY Meta2 "http://kerndatensatz-forschung.de/version1/technisches_datenmodell/owl/Meta#" >
 ]>
 
 
 <rdf:RDF xmlns="http://kerndatensatz-forschung.de/owl/Meta#"
      xml:base="http://kerndatensatz-forschung.de/owl/Meta"
      xmlns:Meta="http://kerndatensatz-forschung.de/owl/Meta#"
-     xmlns:Meta2="http://kerndatensatz-forschung.de/version1.2/technisches_datenmodell/owl/Meta#"
+     xmlns:Meta2="http://kerndatensatz-forschung.de/version1/technisches_datenmodell/owl/Meta#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://kerndatensatz-forschung.de/version1.2/technisches_datenmodell/owl/Meta">
-        <owl:versionIRI rdf:resource="http://kerndatensatz-forschung.de/version1.2/technisches_datenmodell/owl/Meta/version1"/>
+    <owl:Ontology rdf:about="http://kerndatensatz-forschung.de/version1/technisches_datenmodell/owl/Meta">
+        <owl:versionIRI rdf:resource="http://kerndatensatz-forschung.de/version1/technisches_datenmodell/owl/Meta/version1"/>
     </owl:Ontology>
     
 
@@ -36,7 +36,7 @@
     
 
 
-    <!-- http://kerndatensatz-forschung.de/version1.2/technisches_datenmodell/owl/Meta#inhaltlicheDefinition -->
+    <!-- http://kerndatensatz-forschung.de/version1/technisches_datenmodell/owl/Meta#inhaltlicheDefinition -->
 
     <owl:AnnotationProperty rdf:about="&Meta2;inhaltlicheDefinition">
         <rdfs:label rdf:datatype="&xsd;string">inhaltliche Definition</rdfs:label>
@@ -45,7 +45,7 @@
     
 
 
-    <!-- http://kerndatensatz-forschung.de/version1.2/technisches_datenmodell/owl/Meta#pgbid -->
+    <!-- http://kerndatensatz-forschung.de/version1/technisches_datenmodell/owl/Meta#pgbid -->
 
     <owl:AnnotationProperty rdf:about="&Meta2;pgbid">
         <rdfs:label rdf:datatype="&xsd;string">ID der PGB</rdfs:label>

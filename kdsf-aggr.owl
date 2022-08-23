@@ -186,7 +186,7 @@
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#AnzahlDoktorandenAnNichtTitelvergebendenEinrichtungen -->
 
     <owl:DatatypeProperty rdf:about="&aggr;AnzahlDoktorandenAnNichtTitelvergebendenEinrichtungen">
-        <rdfs:label>Anzahl Doktorand/-innen an nicht-titelvergebenden Einrichtungen</rdfs:label>
+        <rdfs:label>Anzahl Doktoranden an nicht-titelvergebenden Einrichtungen</rdfs:label>
         <Meta:inhaltlicheDefinition>Na101</Meta:inhaltlicheDefinition>
         <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
         <rdfs:domain rdf:resource="&aggr;Nachwuchsfoerderung"/>
@@ -201,7 +201,7 @@
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#AnzahlDoktorandenAnTitelvergebendenEinrichtungen -->
 
     <owl:DatatypeProperty rdf:about="&aggr;AnzahlDoktorandenAnTitelvergebendenEinrichtungen">
-        <rdfs:label rdf:datatype="&xsd;string">Anzahl Doktorand/-innen an titelvergebenden Einrichtungen</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Anzahl Doktoranden an titelvergebenden Einrichtungen</rdfs:label>
         <Meta:inhaltlicheDefinition>Na46</Meta:inhaltlicheDefinition>
         <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
         <rdfs:domain rdf:resource="&aggr;Nachwuchsfoerderung"/>
@@ -363,22 +363,9 @@
     <owl:DatatypeProperty rdf:about="&aggr;Kennzahlen">
         <rdfs:label rdf:datatype="&xsd;string">Kennzahlen</rdfs:label>
     </owl:DatatypeProperty>
+    
 
 
-
-    <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#EinnahmenausSondermitteln -->
-
-    <owl:DatatypeProperty rdf:about="&aggr;EinnahmenausSondermitteln">
-        <rdfs:label>Einnahmen aus Sondermitteln</rdfs:label>
-        <Meta:inhaltlicheDefinition>Dr143</Meta:inhaltlicheDefinition>
-        <rdfs:domain rdf:resource="&aggr;Drittmittel"/>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
-    </owl:DatatypeProperty>
-	
-	
-	
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#SonstigeEinnahmen -->
 
     <owl:DatatypeProperty rdf:about="&aggr;SonstigeEinnahmen">
@@ -411,7 +398,7 @@
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#ZahlDerDoktorandenMitAuslaendischerStaatsbuergerschaft -->
 
     <owl:DatatypeProperty rdf:about="&aggr;ZahlDerDoktorandenMitAuslaendischerStaatsbuergerschaft">
-        <rdfs:label rdf:datatype="&xsd;string">Zahl der Doktorand/-innen mit ausländischer Staatsbürgerschaft</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Zahl der Doktoranden mit ausländischer Staatsbürgerschaft</rdfs:label>
         <Meta:inhaltlicheDefinition>Na55</Meta:inhaltlicheDefinition>
         <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
         <rdfs:domain rdf:resource="&aggr;StrukturiertePromotionsprogramme"/>
@@ -423,7 +410,7 @@
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#ZahlDerDoktorandenMitInlaendischerStaatsbuergerschaft -->
 
     <owl:DatatypeProperty rdf:about="&aggr;ZahlDerDoktorandenMitInlaendischerStaatsbuergerschaft">
-        <rdfs:label rdf:datatype="&xsd;string">Zahl der Doktorand/-innen mit inländischer Staatsbürgerschaft</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Zahl der Doktoranden mit inländischer Staatsbürgerschaft</rdfs:label>
         <Meta:inhaltlicheDefinition>Na21</Meta:inhaltlicheDefinition>
         <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
         <rdfs:domain rdf:resource="&aggr;StrukturiertePromotionsprogramme"/>
