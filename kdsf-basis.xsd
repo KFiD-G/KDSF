@@ -2,7 +2,7 @@
 <!DOCTYPE schema [
 	<!ENTITY kdsf-owl "http://kerndatensatz-forschung.de/owl/Basis#">
 ]>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:kdsf-basis="http://kerndatensatz-forschung.de/version1.2/technisches_datenmodell/xsd/kdsf-basis.xsd" xmlns:cf="urn:xmlns:org:eurocris:cerif-1.6-2" targetNamespace="http://kerndatensatz-forschung.de/version1.2/technisches_datenmodell/xsd/kdsf-basis.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.2">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:kdsf-basis="http://kerndatensatz-forschung.de/version1/technisches_datenmodell/xsd/kdsf-basis.xsd" xmlns:cf="urn:xmlns:org:eurocris:cerif-1.6-2" targetNamespace="http://kerndatensatz-forschung.de/version1/technisches_datenmodell/xsd/kdsf-basis.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:import namespace="urn:xmlns:org:eurocris:cerif-1.6-2" schemaLocation="CERIF_1.6_2.xsd"/>
 	<xs:element name="kdsf-basis">
 		<xs:complexType>
@@ -70,7 +70,7 @@
   <xs:element name="NameDerQuelleId" type="cf:cfId__Type"/>
   <xs:element name="FormatId" type="cf:cfId__Type"/>
   <xs:element name="QualifikationsschriftId" type="cf:cfId__Type"/>
-  <xs:element name="DarstellungsformId" type="cf:cfId__Type"/>
+  <xs:element name="RessourceId" type="cf:cfId__Type"/>
 	<xs:element name="ArtDerForschungsinfrastrukturId" type="cf:cfId__Type"/>
 	<xs:element name="TypDerForschungsinfrastrukturId" type="cf:cfId__Type"/>
 	<xs:element name="ArtDesZugangsId" type="cf:cfId__Type"/>
@@ -144,9 +144,6 @@
 					<xs:element name="Drittmittelertraege" type="kdsf-basis:Betrag__Type" minOccurs="0"/>
 					<xs:element name="Koordinationsrolle" type="xs:boolean" minOccurs="0"/>
 					<xs:element name="KoordinatorEinrichtung" type="xs:string" minOccurs="0"/>
-					<xs:element name="Foerderorganisation" type="xs:string" minOccurs="0"/>
-					<xs:element name="WissenschaftlicheProjektleiter/-in" type="xs:string" minOccurs="0"/>
-					<xs:element name="ZwecksdesProjekts" type="xs:string" minOccurs="0"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -160,11 +157,11 @@
 			<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="kdsf-basis:FinanzierungsformId" minOccurs="0"/>
 			<xs:element ref="kdsf-basis:KooperationId" minOccurs="0"/>
-			<xs:element name="BeteiligteEinrichtungen" type="kdsf-basis:BeteiligteEinrichtungen__Type" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="BeteiligteInstitutionen" type="kdsf-basis:BeteiligteInstitutionen__Type" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="kdsf-basis:SprecherId" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="BeteiligteEinrichtungen__Type">
+	<xs:complexType name="BeteiligteInstitutionen__Type">
 		<xs:sequence>
 			<xs:element name="Name" type="xs:string"/>
 			<xs:element name="Land" type="cf:cfCountry__Type"/>
