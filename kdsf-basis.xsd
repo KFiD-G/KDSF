@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE schema [
-	<!ENTITY kdsf-owl "http://kerndatensatz-forschung.de/owl/Basis#">
-]>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:kdsf-basis="http://kerndatensatz-forschung.de/version1.2/technisches_datenmodell/xsd/kdsf-basis.xsd" xmlns:cf="urn:xmlns:org:eurocris:cerif-1.6-2" targetNamespace="http://kerndatensatz-forschung.de/version1.2/technisches_datenmodell/xsd/kdsf-basis.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.2">
+<!-- Die ist das XML Schema für Basisdaten im Rahmen des KDSF Version 1.2 und 1.3. Stand: 21.11.2022 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:kdsf-basis="https://kerndatensatz-forschung.de/version1/technisches_datenmodell/v_1_3/xsd/kdsf-basis.xsd" xmlns:cf="urn:xmlns:org:eurocris:cerif-1.6-2" targetNamespace="https://kerndatensatz-forschung.de/version1/technisches_datenmodell/v_1_3/xsd/kdsf-basis.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.3">
 	<xs:import namespace="urn:xmlns:org:eurocris:cerif-1.6-2" schemaLocation="CERIF_1.6_2.xsd"/>
 	<xs:element name="kdsf-basis">
 		<xs:complexType>
@@ -144,9 +142,9 @@
 					<xs:element name="Drittmittelertraege" type="kdsf-basis:Betrag__Type" minOccurs="0"/>
 					<xs:element name="Koordinationsrolle" type="xs:boolean" minOccurs="0"/>
 					<xs:element name="KoordinatorEinrichtung" type="xs:string" minOccurs="0"/>
-					<xs:element name="Foerderorganisation" type="xs:string" minOccurs="0"/>
+					<xs:element name="Foerderorganisation" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="WissenschaftlicheProjektleiter/-in" type="xs:string" minOccurs="0"/>
-					<xs:element name="ZwecksdesProjekts" type="xs:string" minOccurs="0"/>
+					<xs:element name="ZweckdesProjekts" type="xs:string" minOccurs="0"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
