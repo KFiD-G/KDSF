@@ -1,29 +1,30 @@
 <?xml version="1.0"?>
-
-
-<!DOCTYPE rdf:RDF [
-    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY Meta "http://kerndatensatz-forschung.de/owl/Meta#" >
-    <!ENTITY kdsf "http://kerndatensatz-forschung.de/owl/Basis#" >
-    <!ENTITY aggr "http://kerndatensatz-forschung.de/owl/Aggregationen#" >
-]>
-
-
 <rdf:RDF xmlns="http://kerndatensatz-forschung.de/owl/Aggregationen#"
      xml:base="http://kerndatensatz-forschung.de/owl/Aggregationen"
-     xmlns:Meta="http://kerndatensatz-forschung.de/owl/Meta#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:dct="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:Meta="http://kerndatensatz-forschung.de/owl/Meta#"
      xmlns:aggr="http://kerndatensatz-forschung.de/owl/Aggregationen#"
-     xmlns:kdsf="http://kerndatensatz-forschung.de/owl/Basis#">
+     xmlns:kdsf="http://kerndatensatz-forschung.de/owl/Basis#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen">
         <owl:imports rdf:resource="http://kerndatensatz-forschung.de/owl/Basis"/>
-        <owl:versionIRI rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen/20151010"/>
+        <dct:rights rdf:resource="https://creativecommons.org/licenses/by-sa/4.0/"/>
+        <rdfs:comment xml:lang="de">Das in diesem Dokument definierte Aggregatdatenmodell des &quot;KDSF - Standard für Forschungsinformationen in Deutschland&quot;  versteht sich als exemplarisch: Basis- und Aggregatdaten können in einem einrichtungsinternen Datenmodell repräsentiert werden. 
+
+Die URIs lassen sich nicht derefenzieren. Wir arbeiten an diesen Problemen und werden sie voraussichtlich mit dem nächsten Versionssprung beheben.
+
+Weitere Informationen: https://kerndatensatz-forschung.de/
+
+Änderungen zu Version 1.2: 
+- Fehlende Aggregationsebenen wurden bei den Datatype properties und object properties ergänzt.</rdfs:comment>
+        <owl:backwardCompatibleWith>Version 1.0</owl:backwardCompatibleWith>
+        <owl:incompatibleWith>Version 1.2</owl:incompatibleWith>
+        <owl:priorVersion>Version 1.2</owl:priorVersion>
+        <owl:versionInfo>2022-08-25</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -41,9 +42,24 @@
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#hatAggregationsebene -->
 
-    <owl:AnnotationProperty rdf:about="&aggr;hatAggregationsebene">
+    <owl:AnnotationProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#hatAggregationsebene">
         <rdfs:label>hat Aggregationsebene</rdfs:label>
+        <rdfs:range rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Aggregationsebene"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kerndaten"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastruktur"/>
     </owl:AnnotationProperty>
+    
+
+
+    <!-- http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition -->
+
+    <owl:AnnotationProperty rdf:about="http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/rights -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/rights"/>
     
 
 
@@ -60,84 +76,90 @@
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#ListeDerDrittmittelprojekte -->
 
-    <owl:ObjectProperty rdf:about="&aggr;ListeDerDrittmittelprojekte">
-        <rdfs:label>Liste der Drittmittelprojekte</rdfs:label>
+    <owl:ObjectProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#ListeDerDrittmittelprojekte">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Listen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Drittmittel"/>
+        <rdfs:range rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
         <Meta:inhaltlicheDefinition>Dr30</Meta:inhaltlicheDefinition>
-        <rdfs:domain rdf:resource="&aggr;Drittmittel"/>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Listen"/>
-        <rdfs:range rdf:resource="&kdsf;Drittmittelprojekt"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Drittmittelprojekt"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Fach"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Forschungsfeld"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
+        <rdfs:label>Liste der Drittmittelprojekte</rdfs:label>
     </owl:ObjectProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#ListeDerForschungsinfrastrukturen -->
 
-    <owl:ObjectProperty rdf:about="&aggr;ListeDerForschungsinfrastrukturen">
+    <owl:ObjectProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#ListeDerForschungsinfrastrukturen">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Listen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Forschungsinfrastrukturen"/>
+        <rdfs:range rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastruktur"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Infrastruktur"/>
+        <Meta:inhaltlicheDefinition>Fi2</Meta:inhaltlicheDefinition>
         <rdfs:label>Liste der Forschungsinfrastrukturen</rdfs:label>
-        <Meta:inhaltlicheDefinition>Fi1</Meta:inhaltlicheDefinition>
-        <rdfs:domain rdf:resource="&aggr;Forschungsinfrastrukturen"/>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Listen"/>
-        <rdfs:range rdf:resource="&kdsf;Forschungsinfrastruktur"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#ListeDerPatente -->
 
-    <owl:ObjectProperty rdf:about="&aggr;ListeDerPatente">
-        <rdfs:label>Liste der Patente</rdfs:label>
+    <owl:ObjectProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#ListeDerPatente">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Listen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Patente"/>
+        <rdfs:range rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Patent"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Gesamteinrichtung"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Patent"/>
         <Meta:inhaltlicheDefinition>Pa25</Meta:inhaltlicheDefinition>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Listen"/>
-        <rdfs:domain rdf:resource="&aggr;Patente"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Fach"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Forschungsfeld"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <rdfs:range rdf:resource="&kdsf;Patent"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Patent"/>
+        <rdfs:label>Liste der Patente</rdfs:label>
     </owl:ObjectProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#ListeDerPublikationen -->
 
-    <owl:ObjectProperty rdf:about="&aggr;ListeDerPublikationen">
+    <owl:ObjectProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#ListeDerPublikationen">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Listen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Publikationen"/>
+        <rdfs:range rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Publikation"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Peer-reviewed"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Dokumenttyp"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Publikation"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Publikationstyp"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Schoepfer"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Veroeffentlichungsjahr"/>
+        <Meta:inhaltlicheDefinition>Pu4a</Meta:inhaltlicheDefinition>
         <rdfs:label>Liste der Publikationen</rdfs:label>
-        <Meta:inhaltlicheDefinition>Pu1</Meta:inhaltlicheDefinition>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Listen"/>
-        <rdfs:domain rdf:resource="&aggr;Publikationen"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Fach"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Forschungsfeld"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Publikation"/>
-        <rdfs:range rdf:resource="&kdsf;Publikation"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Publikationstyp"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#ListeDerStrukturiertenPromotionsprogramme -->
 
-    <owl:ObjectProperty rdf:about="&aggr;ListeDerStrukturiertenPromotionsprogramme">
-        <rdfs:label>Liste der strukturierten Promotionsprogramme</rdfs:label>
+    <owl:ObjectProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#ListeDerStrukturiertenPromotionsprogramme">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Listen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#StrukturiertePromotionsprogramme"/>
+        <rdfs:range rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm"/>
         <Meta:inhaltlicheDefinition>Na6</Meta:inhaltlicheDefinition>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Listen"/>
-        <rdfs:domain rdf:resource="&aggr;StrukturiertePromotionsprogramme"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Fach"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Forschungsfeld"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <hatAggregationsebene rdf:resource="&kdsf;StrukturiertesPromotionsprogramm"/>
-        <rdfs:range rdf:resource="&kdsf;StrukturiertesPromotionsprogramm"/>
+        <rdfs:label>Liste der strukturierten Promotionsprogramme</rdfs:label>
     </owl:ObjectProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Listen -->
 
-    <owl:ObjectProperty rdf:about="&aggr;Listen"/>
+    <owl:ObjectProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Listen"/>
     
 
 
@@ -154,304 +176,330 @@
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#AnzahlAbgeschlossenerQualifizierungsverfahren -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;AnzahlAbgeschlossenerQualifizierungsverfahren">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label rdf:datatype="&xsd;string">Anzahl abgeschlossener Qualifizierungsverfahren</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#AnzahlAbgeschlossenerQualifizierungsverfahren">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Nachwuchsfoerderung"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
         <Meta:inhaltlicheDefinition>Na4a</Meta:inhaltlicheDefinition>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <rdfs:domain rdf:resource="&aggr;Nachwuchsfoerderung"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Fach"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Forschungsfeld"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Anzahl abgeschlossener Qualifizierungsverfahren</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#AnzahlAusgruendungen -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;AnzahlAusgruendungen">
-        <rdfs:label>Anzahl Ausgründungen</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#AnzahlAusgruendungen">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Patente"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Gesamteinrichtung"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
         <Meta:inhaltlicheDefinition>Pa39</Meta:inhaltlicheDefinition>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <rdfs:domain rdf:resource="&aggr;Patente"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Fach"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Forschungsfeld"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:label>Anzahl Ausgründungen</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#AnzahlDoktorandenAnNichtTitelvergebendenEinrichtungen -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;AnzahlDoktorandenAnNichtTitelvergebendenEinrichtungen">
-        <rdfs:label>Anzahl Doktorand/-innen an nicht-titelvergebenden Einrichtungen</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#AnzahlDoktorandenAnNichtTitelvergebendenEinrichtungen">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Nachwuchsfoerderung"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
         <Meta:inhaltlicheDefinition>Na101</Meta:inhaltlicheDefinition>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <rdfs:domain rdf:resource="&aggr;Nachwuchsfoerderung"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Fach"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Forschungsfeld"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:label>Anzahl Doktorand/-innen an nicht-titelvergebenden Einrichtungen</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#AnzahlDoktorandenAnTitelvergebendenEinrichtungen -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;AnzahlDoktorandenAnTitelvergebendenEinrichtungen">
-        <rdfs:label rdf:datatype="&xsd;string">Anzahl Doktorand/-innen an titelvergebenden Einrichtungen</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#AnzahlDoktorandenAnTitelvergebendenEinrichtungen">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Nachwuchsfoerderung"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
         <Meta:inhaltlicheDefinition>Na46</Meta:inhaltlicheDefinition>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <rdfs:domain rdf:resource="&aggr;Nachwuchsfoerderung"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Fach"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Forschungsfeld"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Anzahl Doktorand/-innen an titelvergebenden Einrichtungen</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#AnzahlErteilterPatente -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;AnzahlErteilterPatente">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label rdf:datatype="&xsd;string">Anzahl der erteilten Patente</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#AnzahlErteilterPatente">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Patente"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Gesamteinrichtung"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
         <Meta:inhaltlicheDefinition>Pa4</Meta:inhaltlicheDefinition>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <rdfs:domain rdf:resource="&aggr;Patente"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Fach"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Forschungsfeld"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Anzahl der erteilten Patente</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#AnzahlPatentfamilien -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;AnzahlPatentfamilien">
-        <rdfs:label>Anzahl Patentfamilien</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#AnzahlPatentfamilien">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Patente"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Gesamteinrichtung"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
         <Meta:inhaltlicheDefinition>Pa38</Meta:inhaltlicheDefinition>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <rdfs:domain rdf:resource="&aggr;Patente"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Fach"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Forschungsfeld"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:label>Anzahl Patentfamilien</rdfs:label>
     </owl:DatatypeProperty>
     
 
-	 <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Gesamtpersonal -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;Gesamtpersonal">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label rdf:datatype="&xsd;string">Gesamtpersonal</rdfs:label>
-        <Meta:inhaltlicheDefinition>Be84</Meta:inhaltlicheDefinition>
-        <rdfs:domain rdf:resource="&aggr;Beschaeftigte"/>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
-    </owl:DatatypeProperty>
-	
-	
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#AnzahlPersonenKopfzahlen -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;AnzahlPersonenKopfzahlen">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label rdf:datatype="&xsd;string">Anzahl Personen (Kopfzahlen)</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#AnzahlPersonenKopfzahlen">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Beschaeftigte"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
         <Meta:inhaltlicheDefinition>Be2</Meta:inhaltlicheDefinition>
-        <rdfs:domain rdf:resource="&aggr;Beschaeftigte"/>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Fach"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Forschungsfeld"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Anzahl Personen (Kopfzahlen)</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#AnzahlPrioritaetsbegruendeterPatentanmeldungen -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;AnzahlPrioritaetsbegruendeterPatentanmeldungen">
-        <rdfs:label>Anzahl prioritätsbegründeter Patentanmeldungen</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#AnzahlPrioritaetsbegruendeterPatentanmeldungen">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Patente"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Gesamteinrichtung"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
         <Meta:inhaltlicheDefinition>Pa37</Meta:inhaltlicheDefinition>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <rdfs:domain rdf:resource="&aggr;Patente"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Fach"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Forschungsfeld"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:label>Anzahl prioritätsbegründeter Patentanmeldungen</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#BetriebspersonalVollzeitaequivalente -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;BetriebspersonalVollzeitaequivalente">
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#BetriebspersonalVollzeitaequivalente">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Forschungsinfrastrukturen"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <Meta:inhaltlicheDefinition>Fi13</Meta:inhaltlicheDefinition>
         <rdfs:label>Betriebspersonal (Vollzeitäquivalente)</rdfs:label>
-        <Meta:inhaltlicheDefinition>Fi26</Meta:inhaltlicheDefinition>
-        <rdfs:domain rdf:resource="&aggr;Forschungsinfrastrukturen"/>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <rdfs:range rdf:resource="&xsd;float"/>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Drittmitteleinnahmen -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;Drittmitteleinnahmen">
-        <rdfs:label>Drittmitteleinnahmen</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Drittmitteleinnahmen">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Drittmittel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
         <Meta:inhaltlicheDefinition>Dr1a</Meta:inhaltlicheDefinition>
-        <rdfs:domain rdf:resource="&aggr;Drittmittel"/>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Drittmittelprojekt"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Fach"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Forschungsfeld"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <rdfs:range rdf:resource="&xsd;float"/>
+        <rdfs:label>Drittmitteleinnahmen</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Drittmittelertraege -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;Drittmittelertraege">
-        <rdfs:label>Drittmittelerträge</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Drittmittelertraege">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Drittmittel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
         <Meta:inhaltlicheDefinition>Dr1b</Meta:inhaltlicheDefinition>
-        <rdfs:domain rdf:resource="&aggr;Drittmittel"/>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Drittmittelprojekt"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Fach"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Forschungsfeld"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <rdfs:range rdf:resource="&xsd;float"/>
+        <rdfs:label>Drittmittelerträge</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#EinnahmenausSondermitteln -->
+
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#EinnahmenausSondermitteln">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Drittmittel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Gesamteinrichtung"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
+        <Meta:inhaltlicheDefinition>Dr143</Meta:inhaltlicheDefinition>
+        <rdfs:label>Einnahmen aus Sondermitteln</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#ErtraegeAusSchutzrechten -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;ErtraegeAusSchutzrechten">
-        <rdfs:label>Erträge aus Schutzrechten</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#ErtraegeAusSchutzrechten">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Patente"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Gesamteinrichtung"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
         <Meta:inhaltlicheDefinition>Pa34</Meta:inhaltlicheDefinition>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <rdfs:domain rdf:resource="&aggr;Patente"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Fach"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Forschungsfeld"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:label>Erträge aus Schutzrechten</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Gesamtbudget -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;Gesamtbudget">
-        <rdfs:label>Gesamtbudget</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Gesamtbudget">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Drittmittel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Gesamteinrichtung"/>
         <Meta:inhaltlicheDefinition>Dr137</Meta:inhaltlicheDefinition>
-        <rdfs:domain rdf:resource="&aggr;Drittmittel"/>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:label>Gesamtbudget</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Gesamtpersonal -->
+
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Gesamtpersonal">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Beschaeftigte"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Gesamteinrichtung"/>
+        <Meta:inhaltlicheDefinition>Be84</Meta:inhaltlicheDefinition>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gesamtpersonal</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;Kennzahlen">
-        <rdfs:label rdf:datatype="&xsd;string">Kennzahlen</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kennzahlen (Aggregatdaten Summen)</rdfs:label>
     </owl:DatatypeProperty>
+    
 
 
-
-    <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#EinnahmenausSondermitteln -->
-
-    <owl:DatatypeProperty rdf:about="&aggr;EinnahmenausSondermitteln">
-        <rdfs:label>Einnahmen aus Sondermitteln</rdfs:label>
-        <Meta:inhaltlicheDefinition>Dr143</Meta:inhaltlicheDefinition>
-        <rdfs:domain rdf:resource="&aggr;Drittmittel"/>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
-    </owl:DatatypeProperty>
-	
-	
-	
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#SonstigeEinnahmen -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;SonstigeEinnahmen">
-        <rdfs:label>Sonstige Einnahmen</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#SonstigeEinnahmen">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Drittmittel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Gesamteinrichtung"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
         <Meta:inhaltlicheDefinition>Dr139</Meta:inhaltlicheDefinition>
-        <rdfs:domain rdf:resource="&aggr;Drittmittel"/>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:label>Sonstige Einnahmen</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Vollzeitaequivalente -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;Vollzeitaequivalente">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label rdf:datatype="&xsd;string">Vollzeitäquivalente</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Vollzeitaequivalente">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Beschaeftigte"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
         <Meta:inhaltlicheDefinition>Be1</Meta:inhaltlicheDefinition>
-        <rdfs:domain rdf:resource="&aggr;Beschaeftigte"/>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Fach"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Forschungsfeld"/>
-        <hatAggregationsebene rdf:resource="&kdsf;Organisationseinheit"/>
-        <rdfs:range rdf:resource="&xsd;float"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vollzeitäquivalente</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#ZahlDerDoktorandenMitAuslaendischerStaatsbuergerschaft -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;ZahlDerDoktorandenMitAuslaendischerStaatsbuergerschaft">
-        <rdfs:label rdf:datatype="&xsd;string">Zahl der Doktorand/-innen mit ausländischer Staatsbürgerschaft</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#ZahlDerDoktorandenMitAuslaendischerStaatsbuergerschaft">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#StrukturiertePromotionsprogramme"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm"/>
         <Meta:inhaltlicheDefinition>Na55</Meta:inhaltlicheDefinition>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <rdfs:domain rdf:resource="&aggr;StrukturiertePromotionsprogramme"/>
-        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zahl der Doktorand/-innen mit ausländischer Staatsbürgerschaft</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#ZahlDerDoktorandenMitInlaendischerStaatsbuergerschaft -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;ZahlDerDoktorandenMitInlaendischerStaatsbuergerschaft">
-        <rdfs:label rdf:datatype="&xsd;string">Zahl der Doktorand/-innen mit inländischer Staatsbürgerschaft</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#ZahlDerDoktorandenMitInlaendischerStaatsbuergerschaft">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#StrukturiertePromotionsprogramme"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm"/>
         <Meta:inhaltlicheDefinition>Na21</Meta:inhaltlicheDefinition>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <rdfs:domain rdf:resource="&aggr;StrukturiertePromotionsprogramme"/>
-        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zahl der Doktorand/-innen mit inländischer Staatsbürgerschaft</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#ZahlDerMaennlichenDoktoranden -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;ZahlDerMaennlichenDoktoranden">
-        <rdfs:label rdf:datatype="&xsd;string">Zahl der männlichen Doktoranden</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#ZahlDerMaennlichenDoktoranden">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#StrukturiertePromotionsprogramme"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm"/>
         <Meta:inhaltlicheDefinition>Na20</Meta:inhaltlicheDefinition>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <rdfs:domain rdf:resource="&aggr;StrukturiertePromotionsprogramme"/>
-        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zahl der männlichen Doktoranden</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#ZahlDerWeiblichenDoktorandinnen -->
 
-    <owl:DatatypeProperty rdf:about="&aggr;ZahlDerWeiblichenDoktorandinnen">
-        <rdfs:label rdf:datatype="&xsd;string">Zahl der weiblichen Doktorandinnen</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#ZahlDerWeiblichenDoktorandinnen">
+        <rdfs:subPropertyOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Kennzahlen"/>
+        <rdfs:domain rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#StrukturiertePromotionsprogramme"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Fach"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit"/>
+        <hatAggregationsebene rdf:resource="http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm"/>
         <Meta:inhaltlicheDefinition>Na19</Meta:inhaltlicheDefinition>
-        <rdfs:subPropertyOf rdf:resource="&aggr;Kennzahlen"/>
-        <rdfs:domain rdf:resource="&aggr;StrukturiertePromotionsprogramme"/>
-        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zahl der weiblichen Doktorandinnen</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -469,175 +517,257 @@
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Aggregationsebene -->
 
-    <owl:Class rdf:about="&aggr;Aggregationsebene">
-        <rdfs:label rdf:datatype="&xsd;string">Aggregationsebene</rdfs:label>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Aggregationsebene">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aggregationsebene</rdfs:label>
     </owl:Class>
+    
+
+
+    <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Bereiche -->
+
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Bereiche"/>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Beschaeftigte -->
 
-    <owl:Class rdf:about="&aggr;Beschaeftigte">
-        <rdfs:label rdf:datatype="&xsd;string">Beschäftigte</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&aggr;Kerndaten"/>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Beschaeftigte">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Bereiche"/>
         <Meta:inhaltlicheDefinition>Be0</Meta:inhaltlicheDefinition>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Beschäftigte</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Drittmittel -->
 
-    <owl:Class rdf:about="&aggr;Drittmittel">
-        <rdfs:label rdf:datatype="&xsd;string">Drittmittel und Finanzen</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&aggr;Kerndaten"/>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Drittmittel">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Bereiche"/>
         <Meta:inhaltlicheDefinition>Dr0</Meta:inhaltlicheDefinition>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Drittmittel und Finanzen</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Forschungsinfrastrukturen -->
 
-    <owl:Class rdf:about="&aggr;Forschungsinfrastrukturen">
-        <rdfs:label>Forschungsinfrastrukturen</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&aggr;Kerndaten"/>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Forschungsinfrastrukturen">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Bereiche"/>
         <Meta:inhaltlicheDefinition>Fi0</Meta:inhaltlicheDefinition>
+        <rdfs:label>Forschungsinfrastrukturen</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Gesamteinrichtung -->
+
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Gesamteinrichtung">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Aggregationsebene"/>
+        <Meta:inhaltlicheDefinition>Pa40</Meta:inhaltlicheDefinition>
+        <rdfs:label>Gesamteinrichtung</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Infrastruktur -->
+
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Infrastruktur">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Aggregationsebene"/>
         <Meta:inhaltlicheDefinition>Fi1</Meta:inhaltlicheDefinition>
+        <rdfs:label>Infrastruktur</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Kerndaten -->
 
-    <owl:Class rdf:about="&aggr;Kerndaten">
-        <rdfs:label rdf:datatype="&xsd;string">Kerndaten</rdfs:label>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Kerndaten">
+        <rdfs:label>Kerndaten</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:Class>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Nachwuchsfoerderung -->
 
-    <owl:Class rdf:about="&aggr;Nachwuchsfoerderung">
-        <rdfs:label>Nachwuchsförderung</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&aggr;Kerndaten"/>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Nachwuchsfoerderung">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Bereiche"/>
         <Meta:inhaltlicheDefinition>Na0</Meta:inhaltlicheDefinition>
+        <rdfs:label>Nachwuchsförderung</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Patente -->
 
-    <owl:Class rdf:about="&aggr;Patente">
-        <rdfs:label rdf:datatype="&xsd;string">Patente und Ausgründungen</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&aggr;Kerndaten"/>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Patente">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Bereiche"/>
         <Meta:inhaltlicheDefinition>Pa0</Meta:inhaltlicheDefinition>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Patente und Ausgründungen</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Peer-reviewed -->
+
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Peer-reviewed">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Aggregationsebene"/>
+        <Meta:inhaltlicheDefinition>Pu150</Meta:inhaltlicheDefinition>
+        <rdfs:label>Peer-reviewed</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#Publikationen -->
 
-    <owl:Class rdf:about="&aggr;Publikationen">
-        <rdfs:label>Publikationen</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&aggr;Kerndaten"/>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#Publikationen">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Bereiche"/>
         <Meta:inhaltlicheDefinition>Pu0</Meta:inhaltlicheDefinition>
-        <Meta:inhaltlicheDefinition>Pu1</Meta:inhaltlicheDefinition>
+        <rdfs:label>Publikationen</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Aggregationen#StrukturiertePromotionsprogramme -->
 
-    <owl:Class rdf:about="&aggr;StrukturiertePromotionsprogramme">
-        <rdfs:label>Strukturierte Promotionsprogramme</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&aggr;Nachwuchsfoerderung"/>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Aggregationen#StrukturiertePromotionsprogramme">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Nachwuchsfoerderung"/>
         <Meta:inhaltlicheDefinition>Na6</Meta:inhaltlicheDefinition>
+        <rdfs:label>Strukturierte Promotionsprogramme</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Basis#Dokumenttyp -->
 
-    <rdf:Description rdf:about="&kdsf;Dokumenttyp">
-        <rdfs:subClassOf rdf:resource="&aggr;Aggregationsebene"/>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Basis#Dokumenttyp">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Aggregationsebene"/>
         <Meta:inhaltlicheDefinition>Pu148</Meta:inhaltlicheDefinition>
-    </rdf:Description>
+        <rdfs:label>Dokumenttyp</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt -->
 
-    <rdf:Description rdf:about="&kdsf;Drittmittelprojekt">
-        <rdfs:subClassOf rdf:resource="&aggr;Aggregationsebene"/>
-    </rdf:Description>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Aggregationsebene"/>
+        <Meta:inhaltlicheDefinition>Dr2a</Meta:inhaltlicheDefinition>
+        <rdfs:label>Drittmittelprojekt (inkl. nicht wettbewerblich eingeworbener)</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Basis#Fach -->
 
-    <rdf:Description rdf:about="&kdsf;Fach">
-        <rdfs:subClassOf rdf:resource="&aggr;Aggregationsebene"/>
-    </rdf:Description>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Basis#Fach">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Aggregationsebene"/>
+        <Meta:inhaltlicheDefinition>Be38</Meta:inhaltlicheDefinition>
+        <Meta:inhaltlicheDefinition>Dr28</Meta:inhaltlicheDefinition>
+        <Meta:inhaltlicheDefinition>Na2</Meta:inhaltlicheDefinition>
+        <Meta:inhaltlicheDefinition>Pa1</Meta:inhaltlicheDefinition>
+        <Meta:inhaltlicheDefinition>Pu138</Meta:inhaltlicheDefinition>
+        <rdfs:label>Fach</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld -->
 
-    <rdf:Description rdf:about="&kdsf;Forschungsfeld">
-        <rdfs:subClassOf rdf:resource="&aggr;Aggregationsebene"/>
-    </rdf:Description>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Aggregationsebene"/>
+        <Meta:inhaltlicheDefinition>Be77</Meta:inhaltlicheDefinition>
+        <Meta:inhaltlicheDefinition>Dr124</Meta:inhaltlicheDefinition>
+        <Meta:inhaltlicheDefinition>Na66</Meta:inhaltlicheDefinition>
+        <Meta:inhaltlicheDefinition>Pa2</Meta:inhaltlicheDefinition>
+        <Meta:inhaltlicheDefinition>Pu141</Meta:inhaltlicheDefinition>
+        <rdfs:label>Foschungsfeld</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastruktur -->
+
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastruktur">
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+    </owl:Class>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit -->
 
-    <rdf:Description rdf:about="&kdsf;Organisationseinheit">
-        <rdfs:subClassOf rdf:resource="&aggr;Aggregationsebene"/>
-    </rdf:Description>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Aggregationsebene"/>
+        <Meta:inhaltlicheDefinition>Be75</Meta:inhaltlicheDefinition>
+        <Meta:inhaltlicheDefinition>Dr121</Meta:inhaltlicheDefinition>
+        <Meta:inhaltlicheDefinition>Na92</Meta:inhaltlicheDefinition>
+        <Meta:inhaltlicheDefinition>Pa35</Meta:inhaltlicheDefinition>
+        <Meta:inhaltlicheDefinition>Pu140</Meta:inhaltlicheDefinition>
+        <rdfs:label>Organisationseinheit</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Basis#Patent -->
 
-    <rdf:Description rdf:about="&kdsf;Patent">
-        <rdfs:subClassOf rdf:resource="&aggr;Aggregationsebene"/>
-    </rdf:Description>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Basis#Patent">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Aggregationsebene"/>
+        <Meta:inhaltlicheDefinition>Pa2</Meta:inhaltlicheDefinition>
+        <rdfs:label>Patent</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Basis#Publikation -->
 
-    <rdf:Description rdf:about="&kdsf;Publikation">
-        <rdfs:subClassOf rdf:resource="&aggr;Aggregationsebene"/>
-        <Meta:inhaltlicheDefinition>Pu0</Meta:inhaltlicheDefinition>
-    </rdf:Description>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Basis#Publikation">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Aggregationsebene"/>
+        <Meta:inhaltlicheDefinition>Pu1</Meta:inhaltlicheDefinition>
+        <rdfs:label>Publikation</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Basis#Publikationstyp -->
 
-    <rdf:Description rdf:about="&kdsf;Publikationstyp">
-        <rdfs:subClassOf rdf:resource="&aggr;Aggregationsebene"/>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Basis#Publikationstyp">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Aggregationsebene"/>
         <Meta:inhaltlicheDefinition>Pu147</Meta:inhaltlicheDefinition>
-    </rdf:Description>
+        <rdfs:label>Publikationstyp</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Basis#Schoepfer -->
 
-    <rdf:Description rdf:about="&kdsf;Schoepfer">
-        <rdfs:subClassOf rdf:resource="&aggr;Aggregationsebene"/>
-    </rdf:Description>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Basis#Schoepfer">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Aggregationsebene"/>
+        <Meta:inhaltlicheDefinition>Pu149</Meta:inhaltlicheDefinition>
+        <rdfs:label>Schöpfer/-in</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm -->
 
-    <owl:Class rdf:about="&kdsf;StrukturiertesPromotionsprogramm">
-        <rdfs:subClassOf rdf:resource="&aggr;Aggregationsebene"/>
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Aggregationsebene"/>
+        <Meta:inhaltlicheDefinition>Na3</Meta:inhaltlicheDefinition>
+        <rdfs:label>Strukturiertes Promotionsprogramm</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://kerndatensatz-forschung.de/owl/Basis#Veroeffentlichungsjahr -->
+
+    <owl:Class rdf:about="http://kerndatensatz-forschung.de/owl/Basis#Veroeffentlichungsjahr">
+        <rdfs:subClassOf rdf:resource="http://kerndatensatz-forschung.de/owl/Aggregationen#Aggregationsebene"/>
+        <Meta:inhaltlicheDefinition>Pu151</Meta:inhaltlicheDefinition>
+        <rdfs:label>Veröffentlichungsjahr</rdfs:label>
     </owl:Class>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 
