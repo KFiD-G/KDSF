@@ -15,7 +15,7 @@
 Die URIs in diesem Dokument lassen sich nicht derefenzieren. Wir bieten dies zu entschuldigen. Wir arbeiten an dem Problem und werden es voraussichtlich mit dem nächsten Versionssprung beheben.
 
 Änderungen zur Version 1.2
-- Die Ontology IRI wurde auf ihre ursprüngliche Form zurückgesetzt: http://kerndatensatz-forschung.de/owl/Aggregationen</rdfs:comment>
+- Die Ontology IRI wurde auf ihre ursprüngliche Form zurückgesetzt: http://kerndatensatz-forschung.de/owl/Meta</rdfs:comment>
         <owl:backwardCompatibleWith>Version 1.0</owl:backwardCompatibleWith>
         <owl:incompatibleWith>Version 1.2</owl:incompatibleWith>
         <owl:priorVersion>Version 1.2</owl:priorVersion>
@@ -48,7 +48,6 @@ Die URIs in diesem Dokument lassen sich nicht derefenzieren. Wir bieten dies zu 
 
     <owl:AnnotationProperty rdf:about="http://kerndatensatz-forschung.de/owl/Meta#pgbid">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ID der PGB</rdfs:label>
-        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#isDefinedBy"/>
     </owl:AnnotationProperty>
     
