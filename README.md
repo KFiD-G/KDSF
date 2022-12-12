@@ -1,4 +1,6 @@
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+
+[![KDSF-Logo](https://kerndatensatz-forschung.de/img/logo_kdsf.png)](https://kerndatensatz-forschung.de/)
 # KDSF – Standard für Forschungsinformationen in Deutschland
 In diesem Repositorium befinden sich ein exemplarisches Austauschformat und ein exemplarisches Datenmodell für den [KDSF](https://kerndatensatz-forschung.de/). Der KDSF ist ein Standard für Forschungsinformationen für das deutsche Wissenschaftssystem. Er stellt ein freiwilliges Regelwerk zur Harmonisierung und Standardisierung der Forschungsberichterstattung an Forschungseinrichtungen dar. 
 
