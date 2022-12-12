@@ -3,7 +3,7 @@
 	<xs:import namespace="urn:xmlns:org:eurocris:cerif-1.6-2" schemaLocation="CERIF_1.6_2.xsd"/>
 	<xs:import namespace="https://kerndatensatz-forschung.de/version1/technisches_datenmodell/v_1_3/xsd/kdsf-basis.xsd" schemaLocation="kdsf-basis.xsd"/>
 	<xs:annotation>
-		<xs:documentation>Die ist das XML Schema für den Austausch von Aggregatdaten im Rahmen des KDSF Version 1.2 und 1.3. Stand: 23.11.2022.</xs:documentation>
+		<xs:documentation>Die ist das XML Schema für den Austausch von Aggregatdaten im Rahmen des KDSF Version 1.2 und 1.3. Stand: 12.12.2022.</xs:documentation>
 	</xs:annotation>
 	<xs:element name="kdsf">
 		<xs:complexType>
@@ -214,8 +214,8 @@
 									<xs:element name="Titel" type="xs:string" minOccurs="0"/>
 									<xs:element name="ZahlDerWeiblichenDoktorandinnen" type="xs:nonNegativeInteger" minOccurs="0"/>
 									<xs:element name="ZahlDerMaennlichenDoktoranden" type="xs:nonNegativeInteger" minOccurs="0"/>
-									<xs:element name="ZahlDerDoktorand/-innenMitInlaendischerStaatsbuergerschaft" type="xs:nonNegativeInteger" minOccurs="0"/>
-									<xs:element name="ZahlDerDoktorand/-innenMitAuslaendischerStaatsbuergerschaft" type="xs:nonNegativeInteger" minOccurs="0"/>
+									<xs:element name="ZahlDerDoktorandInnenMitInlaendischerStaatsbuergerschaft" type="xs:nonNegativeInteger" minOccurs="0"/>
+									<xs:element name="ZahlDerDoktorandInnenMitAuslaendischerStaatsbuergerschaft" type="xs:nonNegativeInteger" minOccurs="0"/>
 									<xs:element name="BeteiligteEinrichtungen" type="kdsf-basis:BeteiligteEinrichtungen__Type" minOccurs="0"/>
 									<xs:element ref="kdsf-basis:FinanzierungsformId" minOccurs="0"/>
 									<xs:element ref="kdsf-basis:SprecherId" minOccurs="0"/>
@@ -303,7 +303,7 @@
 									<xs:element name="Bewilligungssumme" type="kdsf-basis:Betrag__Type" minOccurs="0"/>
 									<xs:element name="TitelDesUebergeordnetenProjekts" type="xs:string" minOccurs="0"/>
 									<xs:element name="Foerderorganisation" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="WissenschaftlicheProjektleiter/-in" type="xs:string" minOccurs="0"/>
+									<xs:element name="WissenschaftlicheProjektleiterIn" type="xs:string" minOccurs="0"/>
 									<xs:element name="ZweckdesProjekts" type="xs:string" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
@@ -349,7 +349,7 @@
 									<xs:element name="Titel" type="xs:string" minOccurs="0"/>
 									<xs:element name="JahrDerPrioritaetsbegruendendenErstanmeldung" type="xs:gYear" minOccurs="0"/>
 									<xs:element name="Veroeffentlichungsnummer" type="xs:string" minOccurs="0"/>
-									<xs:element name="Erfinder/-in" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="ErfinderIn" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
