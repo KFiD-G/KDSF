@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="https://kerndatensatz-forschung.de/version1/technisches_datenmodell/v_1_3/xsd/kdsf.xsd" xmlns:kdsf="https://kerndatensatz-forschung.de/version1/technisches_datenmodell/v_1_3/xsd/kdsf.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:kdsf-basis="https://kerndatensatz-forschung.de/version1/technisches_datenmodell/v_1_3/xsd/kdsf-basis.xsd" xmlns:cf="urn:xmlns:org:eurocris:cerif-1.6-2" targetNamespace="https://kerndatensatz-forschung.de/version1/technisches_datenmodell/v_1_3/xsd/kdsf.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.3" vc:minVersion="1.3">
+<xs:schema
+	xmlns="https://kerndatensatz-forschung.de/version1/technisches_datenmodell/v_1_3/xsd/kdsf.xsd"
+	xmlns:kdsf="https://kerndatensatz-forschung.de/version1/technisches_datenmodell/v_1_3/xsd/kdsf.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+	xmlns:kdsf-basis="https://kerndatensatz-forschung.de/version1/technisches_datenmodell/v_1_3/xsd/kdsf-basis.xsd"
+	xmlns:cf="urn:xmlns:org:eurocris:cerif-1.6-2"
+	targetNamespace="https://kerndatensatz-forschung.de/version1/technisches_datenmodell/v_1_3/xsd/kdsf.xsd"
+	elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.3"
+	vc:minVersion="1.0">
 	<xs:import namespace="urn:xmlns:org:eurocris:cerif-1.6-2" schemaLocation="CERIF_1.6_2.xsd"/>
-	<xs:import namespace="https://kerndatensatz-forschung.de/version1/technisches_datenmodell/v_1_3/xsd/kdsf-basis.xsd" schemaLocation="kdsf-basis.xsd"/>
+	<xs:import
+		namespace="https://kerndatensatz-forschung.de/version1/technisches_datenmodell/v_1_3/xsd/kdsf-basis.xsd"
+		schemaLocation="kdsf-basis.xsd"/>
 	<xs:annotation>
-		<xs:documentation>Die ist das XML Schema für den Austausch von Aggregatdaten im Rahmen des KDSF Version 1.2 und 1.3. Stand: 12.12.2022.</xs:documentation>
+		<xs:documentation>Die ist die Umstrukturierung des XML Schemas für den Austausch von Aggregatdaten im Rahmen des KDSF Version 1.2 und 1.3. Stand: 28.04.2023. </xs:documentation>
 	</xs:annotation>
 	<xs:element name="kdsf">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="Beschaeftigte" type="Beschaeftigte__Type" minOccurs="0"/>
-				<xs:element name="Nachwuchsfoerderung" type="Nachwuchsfoerderung__Type" minOccurs="0"/>
+				<xs:element name="Nachwuchsfoerderung" type="Nachwuchsfoerderung__Type"
+					minOccurs="0"/>
 				<xs:element name="Drittmittel" type="Drittmittel__Type" minOccurs="0"/>
 				<xs:element name="Patente" type="Patente__Type" minOccurs="0"/>
 				<xs:element name="Publikationen" type="Publikationen__Type" minOccurs="0"/>
-				<xs:element name="Forschungsinfrastrukturen" type="Forschungsinfrastrukturen__Type" minOccurs="0"/>
-				<xs:element ref="kdsf-basis:kdsf-basis"/>
+				<xs:element name="Forschungsinfrastrukturen" type="Forschungsinfrastrukturen__Type"
+					minOccurs="0"/>
+				<xs:element ref="kdsf-basis:kdsf-basis" minOccurs="0"/>
 			</xs:sequence>
 		</xs:complexType>
-		<xs:keyref name="StrukturiertesPromotionsprogramm__Keyref" refer="kdsf-basis:StrukturiertesPromotionsprogramm__Key">
-			<xs:selector xpath="Nachwuchsfoerderung/StrukturiertesPromotionsprogramm/Aggregationsniveau/StrukturiertesPromotionsprogrammId"/>
+		<xs:keyref name="StrukturiertesPromotionsprogramm__Keyref"
+			refer="kdsf-basis:StrukturiertesPromotionsprogramm__Key">
+			<xs:selector
+				xpath="Nachwuchsfoerderung/StrukturiertesPromotionsprogramm/Aggregationsniveau/StrukturiertesPromotionsprogrammId"/>
 			<xs:field xpath="."/>
 		</xs:keyref>
 		<xs:keyref name="Patent__Keyref" refer="kdsf-basis:Patent__Key">
@@ -29,45 +44,59 @@
 			<xs:selector xpath="Publikationen/ListeDerPublikationen/PublikationId"/>
 			<xs:field xpath="."/>
 		</xs:keyref>
-		<xs:keyref name="Forschungsinfrastruktur__Keyref" refer="kdsf-basis:Forschungsinfrastruktur__Key">
-			<xs:selector xpath="Forschungsinfrastrukturen/ListeDerForschungsinfrastrukturen/ForschungsinfrastrukturId"/>
+		<xs:keyref name="Forschungsinfrastruktur__Keyref"
+			refer="kdsf-basis:Forschungsinfrastruktur__Key">
+			<xs:selector
+				xpath="Forschungsinfrastrukturen/ListeDerForschungsinfrastrukturen/ForschungsinfrastrukturId"/>
 			<xs:field xpath="."/>
 		</xs:keyref>
 		<xs:keyref name="Organisationseinheit__Keyref" refer="kdsf-basis:Organisationseinheit__Key">
-			<xs:selector xpath="Beschaeftigte/Vollzeitaequivalente/Aggregationsniveau/kdsf-basis:cfOrgUnitId"/>
+			<xs:selector
+				xpath="Beschaeftigte/Vollzeitaequivalente/Aggregationsniveau/kdsf-basis:cfOrgUnitId"/>
 			<xs:field xpath="."/>
 		</xs:keyref>
 	</xs:element>
 	<xs:complexType name="Beschaeftigte__Type">
-    <xs:sequence>
-      <xs:element name="Gesamtpersonal" minOccurs="0" maxOccurs="unbounded">
-      </xs:element>
+		<xs:sequence>
+			<xs:element name="Gesamtpersonal" minOccurs="0" maxOccurs="unbounded"> </xs:element>
 			<xs:element name="Vollzeitaequivalente" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Ausdifferenzierung">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Geschlecht" type="cf:cfGender__Type" minOccurs="0"/>
+									<xs:element name="Geschlecht" type="cf:cfGender__Type"
+										minOccurs="0"/>
 									<xs:element ref="kdsf-basis:PersonalkategorieId" minOccurs="0"/>
 									<xs:element ref="kdsf-basis:FinanzierungsformId" minOccurs="0"/>
-									<xs:element name="QualifikationId" type="cf:cfId__Type" minOccurs="0"/>
+									<xs:element name="QualifikationId" type="cf:cfId__Type"
+										minOccurs="0"/>
 									<xs:element ref="kdsf-basis:BefristungId" minOccurs="0"/>
-									<xs:element name="Staatsangehoerigkeit" type="InlandAusland__Type" minOccurs="0"/>
-									<xs:element name="Altersgruppe" type="kdsf-basis:Altersgruppe__Type" minOccurs="0"/>
+									<xs:element name="Staatsangehoerigkeit"
+										type="InlandAusland__Type" minOccurs="0"/>
+									<xs:element name="Altersgruppe"
+										type="kdsf-basis:Altersgruppe__Type" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Aggregationsniveau">
+						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:ForschungsfeldId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
+									<xs:element name="Aggregationsniveau">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
+												<xs:element ref="kdsf-basis:ForschungsfeldId"
+												minOccurs="0"/>
+												<xs:element ref="kdsf-basis:cfOrgUnitId"
+												minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Wert" type="xs:float"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Wert" type="xs:float"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -77,27 +106,39 @@
 						<xs:element name="Ausdifferenzierung">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Geschlecht" type="cf:cfGender__Type" minOccurs="0"/>
+									<xs:element name="Geschlecht" type="cf:cfGender__Type"
+										minOccurs="0"/>
 									<xs:element ref="kdsf-basis:PersonalkategorieId" minOccurs="0"/>
 									<xs:element ref="kdsf-basis:FinanzierungsformId" minOccurs="0"/>
-									<xs:element name="QualifikationId" type="cf:cfId__Type" minOccurs="0"/>
+									<xs:element name="QualifikationId" type="cf:cfId__Type"
+										minOccurs="0"/>
 									<xs:element ref="kdsf-basis:BefristungId" minOccurs="0"/>
-									<xs:element name="Staatsangehoerigkeit" type="InlandAusland__Type" minOccurs="0"/>
-									<xs:element name="Altersgruppe" type="kdsf-basis:Altersgruppe__Type" minOccurs="0"/>
+									<xs:element name="Staatsangehoerigkeit"
+										type="InlandAusland__Type" minOccurs="0"/>
+									<xs:element name="Altersgruppe"
+										type="kdsf-basis:Altersgruppe__Type" minOccurs="0"/>
 									<xs:element ref="kdsf-basis:TaetigkeitsartId" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Aggregationsniveau">
+						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:ForschungsfeldId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
+									<xs:element name="Aggregationsniveau">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
+												<xs:element ref="kdsf-basis:ForschungsfeldId"
+												minOccurs="0"/>
+												<xs:element ref="kdsf-basis:cfOrgUnitId"
+												minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Wert" type="xs:nonNegativeInteger"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Wert" type="xs:nonNegativeInteger"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -105,103 +146,153 @@
 	</xs:complexType>
 	<xs:complexType name="Nachwuchsfoerderung__Type">
 		<xs:sequence>
-			<xs:element name="AnzahlDoktorandenAnTitelvergebendenEinrichtungen" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="AnzahlDoktorandenAnTitelvergebendenEinrichtungen" minOccurs="0"
+				maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Ausdifferenzierung">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Geschlecht" type="cf:cfGender__Type" minOccurs="0"/>
-									<xs:element name="Staatsangehoerigkeit" type="InlandAusland__Type" minOccurs="0"/>
-									<xs:element name="StartDerPromotion" type="xs:gYearMonth" minOccurs="0"/>
-									<xs:element name="ErstbetreuerId" type="cf:cfId__Type" minOccurs="0"/>
-									<xs:element name="StrukturiertesPromotionsprogrammId" type="cf:cfId__Type" minOccurs="0"/>
+									<xs:element name="Geschlecht" type="cf:cfGender__Type"
+										minOccurs="0"/>
+									<xs:element name="Staatsangehoerigkeit"
+										type="InlandAusland__Type" minOccurs="0"/>
+									<xs:element name="StartDerPromotion" type="xs:gYearMonth"
+										minOccurs="0"/>
+									<xs:element name="ErstbetreuerId" type="cf:cfId__Type"
+										minOccurs="0"/>
+									<xs:element name="StrukturiertesPromotionsprogrammId"
+										type="cf:cfId__Type" minOccurs="0"/>
 									<xs:element ref="kdsf-basis:FinanzierungsformId" minOccurs="0"/>
 									<xs:element ref="kdsf-basis:KooperationId" minOccurs="0"/>
-									<xs:element name="PromotionsberechtigungAus" type="InlandAusland__Type" minOccurs="0"/>
+									<xs:element name="PromotionsberechtigungAus"
+										type="InlandAusland__Type" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Aggregationsniveau">
+						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:ForschungsfeldId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
+									<xs:element name="Aggregationsniveau">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
+												<xs:element ref="kdsf-basis:ForschungsfeldId"
+												minOccurs="0"/>
+												<xs:element ref="kdsf-basis:cfOrgUnitId"
+												minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Wert" type="xs:nonNegativeInteger"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Wert" type="xs:nonNegativeInteger"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="AnzahlDoktorandenAnNichtTitelvergebendenEinrichtungen" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="AnzahlDoktorandenAnNichtTitelvergebendenEinrichtungen" minOccurs="0"
+				maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Ausdifferenzierung">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Geschlecht" type="cf:cfGender__Type" minOccurs="0"/>
-									<xs:element name="Staatsangehoerigkeit" type="InlandAusland__Type" minOccurs="0"/>
-									<xs:element name="StartDerPromotion" type="xs:gYearMonth" minOccurs="0"/>
-									<xs:element name="ErstbetreuerId" type="cf:cfId__Type" minOccurs="0"/>
-									<xs:element name="StrukturiertesPromotionsprogrammId" type="cf:cfId__Type" minOccurs="0"/>
+									<xs:element name="Geschlecht" type="cf:cfGender__Type"
+										minOccurs="0"/>
+									<xs:element name="Staatsangehoerigkeit"
+										type="InlandAusland__Type" minOccurs="0"/>
+									<xs:element name="StartDerPromotion" type="xs:gYearMonth"
+										minOccurs="0"/>
+									<xs:element name="ErstbetreuerId" type="cf:cfId__Type"
+										minOccurs="0"/>
+									<xs:element name="StrukturiertesPromotionsprogrammId"
+										type="cf:cfId__Type" minOccurs="0"/>
 									<xs:element ref="kdsf-basis:FinanzierungsformId" minOccurs="0"/>
 									<xs:element ref="kdsf-basis:KooperationId" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Aggregationsniveau">
+						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:ForschungsfeldId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
+									<xs:element name="Aggregationsniveau">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
+												<xs:element ref="kdsf-basis:ForschungsfeldId"
+												minOccurs="0"/>
+												<xs:element ref="kdsf-basis:cfOrgUnitId"
+												minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Wert" type="xs:nonNegativeInteger"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Wert" type="xs:nonNegativeInteger"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="AnzahlAbgeschlossenerQualifizierungsverfahren" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="AnzahlAbgeschlossenerQualifizierungsverfahren" minOccurs="0"
+				maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Ausdifferenzierung">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Geschlecht" type="cf:cfGender__Type" minOccurs="0"/>
-									<xs:element name="Staatsangehoerigkeit" type="InlandAusland__Type" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:QualifizierungsverfahrenId" minOccurs="0"/>
+									<xs:element name="Geschlecht" type="cf:cfGender__Type"
+										minOccurs="0"/>
+									<xs:element name="Staatsangehoerigkeit"
+										type="InlandAusland__Type" minOccurs="0"/>
+									<xs:element ref="kdsf-basis:QualifizierungsverfahrenId"
+										minOccurs="0"/>
 									<xs:choice>
 										<xs:sequence>
-											<xs:element name="StartDerPromotion" type="xs:gYearMonth" minOccurs="0"/>
-											<xs:element name="ErstbetreuerId" type="cf:cfId__Type" minOccurs="0"/>
-											<xs:element name="StrukturiertesPromotionsprogrammId" type="cf:cfId__Type" minOccurs="0"/>
-											<xs:element ref="kdsf-basis:FinanzierungsformId" minOccurs="0"/>
-											<xs:element name="AbschlusszeitpunktPromotion" type="xs:gYearMonth" minOccurs="0"/>
+											<xs:element name="StartDerPromotion"
+												type="xs:gYearMonth" minOccurs="0"/>
+											<xs:element name="ErstbetreuerId" type="cf:cfId__Type"
+												minOccurs="0"/>
+											<xs:element name="StrukturiertesPromotionsprogrammId"
+												type="cf:cfId__Type" minOccurs="0"/>
+											<xs:element ref="kdsf-basis:FinanzierungsformId"
+												minOccurs="0"/>
+											<xs:element name="AbschlusszeitpunktPromotion"
+												type="xs:gYearMonth" minOccurs="0"/>
 											<xs:element ref="kdsf-basis:KooperationId" minOccurs="0"/>
-											<xs:element name="AltersgruppeDesDoktoranden" type="kdsf-basis:Altersgruppe__Type" minOccurs="0"/>
-											<xs:element name="PromotionsberechtigungAus" type="InlandAusland__Type" minOccurs="0"/>
+											<xs:element name="AltersgruppeDesDoktoranden"
+												type="kdsf-basis:Altersgruppe__Type" minOccurs="0"/>
+											<xs:element name="PromotionsberechtigungAus"
+												type="InlandAusland__Type" minOccurs="0"/>
 										</xs:sequence>
 										<xs:sequence>
-											<xs:element name="AbschlusszeitpunktHabilition" type="xs:gYearMonth" minOccurs="0"/>
-											<xs:element name="AltersgruppeDesHabilitanden" type="kdsf-basis:Altersgruppe__Type" minOccurs="0"/>
+											<xs:element name="AbschlusszeitpunktHabilition"
+												type="xs:gYearMonth" minOccurs="0"/>
+											<xs:element name="AltersgruppeDesHabilitanden"
+												type="kdsf-basis:Altersgruppe__Type" minOccurs="0"/>
 										</xs:sequence>
 									</xs:choice>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Aggregationsniveau">
+						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:ForschungsfeldId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
+									<xs:element name="Aggregationsniveau">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
+												<xs:element ref="kdsf-basis:ForschungsfeldId"
+												minOccurs="0"/>
+												<xs:element ref="kdsf-basis:cfOrgUnitId"
+												minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Wert" type="xs:nonNegativeInteger"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Wert" type="xs:nonNegativeInteger"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -212,26 +303,43 @@
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="Titel" type="xs:string" minOccurs="0"/>
-									<xs:element name="ZahlDerWeiblichenDoktorandinnen" type="xs:nonNegativeInteger" minOccurs="0"/>
-									<xs:element name="ZahlDerMaennlichenDoktoranden" type="xs:nonNegativeInteger" minOccurs="0"/>
-									<xs:element name="ZahlDerDoktorandInnenMitInlaendischerStaatsbuergerschaft" type="xs:nonNegativeInteger" minOccurs="0"/>
-									<xs:element name="ZahlDerDoktorandInnenMitAuslaendischerStaatsbuergerschaft" type="xs:nonNegativeInteger" minOccurs="0"/>
-									<xs:element name="BeteiligteEinrichtungen" type="kdsf-basis:BeteiligteEinrichtungen__Type" minOccurs="0"/>
+									<xs:element name="ZahlDerWeiblichenDoktorandinnen"
+										type="xs:nonNegativeInteger" minOccurs="0"/>
+									<xs:element name="ZahlDerMaennlichenDoktoranden"
+										type="xs:nonNegativeInteger" minOccurs="0"/>
+									<xs:element
+										name="ZahlDerDoktorandInnenMitInlaendischerStaatsbuergerschaft"
+										type="xs:nonNegativeInteger" minOccurs="0"/>
+									<xs:element
+										name="ZahlDerDoktorandInnenMitAuslaendischerStaatsbuergerschaft"
+										type="xs:nonNegativeInteger" minOccurs="0"/>
+									<xs:element name="BeteiligteEinrichtungen"
+										type="kdsf-basis:BeteiligteEinrichtungen__Type"
+										minOccurs="0"/>
 									<xs:element ref="kdsf-basis:FinanzierungsformId" minOccurs="0"/>
 									<xs:element ref="kdsf-basis:SprecherId" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Aggregationsniveau">
+						<xs:element maxOccurs="unbounded" name="entry" minOccurs="0">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:ForschungsfeldId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
+									<xs:element name="Aggregationsniveau">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
+												<xs:element ref="kdsf-basis:ForschungsfeldId"
+												minOccurs="0"/>
+												<xs:element ref="kdsf-basis:cfOrgUnitId"
+												minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-            <xs:element name="StrukturiertesPromotionsprogrammId" type="cf:cfId__Type" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="StrukturiertesPromotionsprogrammId" type="cf:cfId__Type"
+							minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -249,17 +357,26 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Aggregationsniveau">
+						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:ForschungsfeldId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
-                  <xs:element name="DrittmittelprojektId" type="cf:cfId__Type" minOccurs="0"/>
+									<xs:element name="Aggregationsniveau">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
+												<xs:element ref="kdsf-basis:ForschungsfeldId"
+												minOccurs="0"/>
+												<xs:element ref="kdsf-basis:cfOrgUnitId"
+												minOccurs="0"/>
+												<xs:element name="DrittmittelprojektId"
+												type="cf:cfId__Type" minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Wert" type="kdsf-basis:Betrag__Type"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Wert" type="kdsf-basis:Betrag__Type"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -273,17 +390,26 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Aggregationsniveau">
+						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:ForschungsfeldId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
-                  <xs:element name="DrittmittelprojektId" type="cf:cfId__Type" minOccurs="0"/>
+									<xs:element name="Aggregationsniveau">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
+												<xs:element ref="kdsf-basis:ForschungsfeldId"
+												minOccurs="0"/>
+												<xs:element ref="kdsf-basis:cfOrgUnitId"
+												minOccurs="0"/>
+												<xs:element name="DrittmittelprojektId"
+												type="cf:cfId__Type" minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Wert" type="kdsf-basis:Betrag__Type"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Wert" type="kdsf-basis:Betrag__Type"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -294,37 +420,70 @@
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="Titel" type="xs:string" minOccurs="0"/>
-									<xs:element name="Koordinationsrolle" type="xs:boolean" minOccurs="0"/>
-									<xs:element name="KoordinatorEinrichtung" type="xs:string" minOccurs="0"/>
-									<xs:element name="Projektbeginn" type="xs:gYearMonth" minOccurs="0"/>
-									<xs:element name="Projektende" type="xs:gYearMonth" minOccurs="0"/>
+									<xs:element name="Koordinationsrolle" type="xs:boolean"
+										minOccurs="0"/>
+									<xs:element name="KoordinatorEinrichtung" type="xs:string"
+										minOccurs="0"/>
+									<xs:element name="Projektbeginn" type="xs:gYearMonth"
+										minOccurs="0"/>
+									<xs:element name="Projektende" type="xs:gYearMonth"
+										minOccurs="0"/>
 									<xs:element ref="kdsf-basis:MittelgeberId" minOccurs="0"/>
-									<xs:element name="Foerderkennzeichen" type="xs:string" minOccurs="0"/>
-									<xs:element name="Bewilligungssumme" type="kdsf-basis:Betrag__Type" minOccurs="0"/>
-									<xs:element name="TitelDesUebergeordnetenProjekts" type="xs:string" minOccurs="0"/>
-									<xs:element name="Foerderorganisation" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="WissenschaftlicheProjektleiterIn" type="xs:string" minOccurs="0"/>
-									<xs:element name="ZweckdesProjekts" type="xs:string" minOccurs="0"/>
+									<xs:element name="Foerderkennzeichen" type="xs:string"
+										minOccurs="0"/>
+									<xs:element name="Bewilligungssumme"
+										type="kdsf-basis:Betrag__Type" minOccurs="0"/>
+									<xs:element name="TitelDesUebergeordnetenProjekts"
+										type="xs:string" minOccurs="0"/>
+									<xs:element name="Foerderorganisation" type="xs:string"
+										minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="WissenschaftlicheProjektleiterIn"
+										type="xs:string" minOccurs="0"/>
+									<xs:element name="ZweckdesProjekts" type="xs:string"
+										minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Aggregationsniveau">
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:ForschungsfeldId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
+									<xs:element name="Aggregationsniveau">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
+												<xs:element ref="kdsf-basis:ForschungsfeldId"
+												minOccurs="0"/>
+												<xs:element ref="kdsf-basis:cfOrgUnitId"
+												minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-            <xs:element name="DrittmittelprojektId" type="cf:cfId__Type" minOccurs="0" maxOccurs="unbounded" />
+						<xs:element name="DrittmittelprojektId" type="cf:cfId__Type" minOccurs="0"
+							maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="SonstigeEinnahmen" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Aggregationsniveau">
+						<xs:element name="Aggregationsniveau" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Wert" type="kdsf-basis:Betrag__Type"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="EinnahmenAusSondermitteln ">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Aggregationsniveau" minOccurs="0">
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
@@ -340,109 +499,162 @@
 	</xs:complexType>
 	<xs:complexType name="Patente__Type">
 		<xs:sequence>
-      <xs:element name="Patent" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Patent" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Ausdifferenzierung">
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="Titel" type="xs:string" minOccurs="0"/>
-									<xs:element name="JahrDerPrioritaetsbegruendendenErstanmeldung" type="xs:gYear" minOccurs="0"/>
-									<xs:element name="Veroeffentlichungsnummer" type="xs:string" minOccurs="0"/>
-									<xs:element name="ErfinderIn" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="JahrDerPrioritaetsbegruendendenErstanmeldung"
+										type="xs:gYear" minOccurs="0"/>
+									<xs:element name="Veroeffentlichungsnummer" type="xs:string"
+										minOccurs="0"/>
+									<xs:element name="ErfinderIn" type="xs:string" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Aggregationsniveau">
+						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:ForschungsfeldId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
+									<xs:element name="Aggregationsniveau" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
+												<xs:element ref="kdsf-basis:ForschungsfeldId"
+												minOccurs="0"/>
+												<xs:element ref="kdsf-basis:cfOrgUnitId"
+												minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="PatentId" type="cf:cfId__Type" minOccurs="0"
+										maxOccurs="unbounded"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-            <xs:element name="PatentId" type="cf:cfId__Type" minOccurs="0" maxOccurs="unbounded" />
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-      <xs:element name="AnzahlDerPatentfamilien" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="AnzahlDerPatentfamilien" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Aggregationsniveau">
+						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:ForschungsfeldId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
+									<xs:element name="Aggregationsniveau" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
+												<xs:element ref="kdsf-basis:ForschungsfeldId"
+												minOccurs="0"/>
+												<xs:element ref="kdsf-basis:cfOrgUnitId"
+												minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Wert" type="xs:nonNegativeInteger"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-            <xs:element name="Wert" type="xs:nonNegativeInteger"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-      <xs:element name="AnzahlPrioritaetsbegruendenderPatentanmeldungen" minOccurs="0" maxOccurs="unbounded">
-        <xs:complexType>
-					<xs:sequence>
-						<xs:element name="Aggregationsniveau">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:ForschungsfeldId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-            <xs:element name="Wert" type="xs:nonNegativeInteger"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-      <xs:element name="AnzahlDerErteiltenPatente" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="AnzahlPrioritaetsbegruendenderPatentanmeldungen" minOccurs="0"
+				maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Aggregationsniveau">
+						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:ForschungsfeldId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
+									<xs:element name="Aggregationsniveau" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
+												<xs:element ref="kdsf-basis:ForschungsfeldId"
+												minOccurs="0"/>
+												<xs:element ref="kdsf-basis:cfOrgUnitId"
+												minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Wert" type="xs:nonNegativeInteger"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-            <xs:element name="Wert" type="xs:nonNegativeInteger"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-      <xs:element name="AnzahlAusgruendungen" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="AnzahlDerErteiltenPatente" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Aggregationsniveau">
+						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:ForschungsfeldId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
+									<xs:element name="Aggregationsniveau" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
+												<xs:element ref="kdsf-basis:ForschungsfeldId"
+												minOccurs="0"/>
+												<xs:element ref="kdsf-basis:cfOrgUnitId"
+												minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Wert" type="xs:nonNegativeInteger"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-            <xs:element name="Wert" type="xs:nonNegativeInteger"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-      <xs:element name="ErtraegeAusSchutzrechten" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="AnzahlAusgruendungen" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Aggregationsniveau">
+						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:ForschungsfeldId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
+									<xs:element name="Aggregationsniveau" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
+												<xs:element ref="kdsf-basis:ForschungsfeldId"
+												minOccurs="0"/>
+												<xs:element ref="kdsf-basis:cfOrgUnitId"
+												minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Wert" type="xs:nonNegativeInteger"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-            <xs:element name="Wert" type="kdsf-basis:Betrag__Type"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ErtraegeAusSchutzrechten" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" name="entry">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Aggregationsniveau" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
+												<xs:element ref="kdsf-basis:ForschungsfeldId"
+												minOccurs="0"/>
+												<xs:element ref="kdsf-basis:cfOrgUnitId"
+												minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Wert" type="kdsf-basis:Betrag__Type"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -453,82 +665,101 @@
 			<xs:element name="ListeDerPublikationen" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
-            <xs:element name="Ausdifferenzierung">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="SchöpferId" type="cf:cfId__Type" minOccurs="0"/>
-                  <xs:element name="TitelDerPublikation" type="xs:string" minOccurs="0"/>
-                  <xs:element name="Veroeffentlichungsjahr" type="xs:gYear" minOccurs="0"/>
-                  <xs:element ref="kdsf-basis:VerlagId" minOccurs="0"/>
-                  <xs:element ref="kdsf-basis:NameDerQuelleId" minOccurs="0"/>
-                  <xs:element name="Identifier" type="xs:string" minOccurs="0"/>
-                  <xs:element ref="kdsf-basis:FormatId" minOccurs="0"/>
-                  <xs:element name="Sprachcode" type="xs:string" minOccurs="0"/>
-                  <xs:element name="Zugangsrechte" type="xs:string" minOccurs="0"/>
-                  <xs:element name="PeerReviewed" type="xs:boolean" minOccurs="0"/>
-                  <xs:element ref="kdsf-basis:QualifikationsschriftId" minOccurs="0"/>
-                  <xs:element ref="kdsf-basis:DokumenttypId" minOccurs="0"/>
-                  <xs:element ref="kdsf-basis:PublikationstypId" minOccurs="0"/>
-                  <xs:element ref="kdsf-basis:DarstellungsformId" minOccurs="0"/>
-                  <xs:element name="Foerderer" type="xs:string" minOccurs="0"/>
-                  <xs:element name="FoerderkennzeichenDerPublikation" type="xs:string" minOccurs="0"/>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="Aggregationsniveau">
+						<xs:element name="Ausdifferenzierung">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:ForschungsfeldId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
-									<xs:element ref="kdsf-basis:PublikationstypId" minOccurs="0"/>
+									<xs:element name="SchöpferId" type="cf:cfId__Type" minOccurs="0"/>
+									<xs:element name="TitelDerPublikation" type="xs:string"
+										minOccurs="0"/>
+									<xs:element name="Veroeffentlichungsjahr" type="xs:gYear"
+										minOccurs="0"/>
+									<xs:element ref="kdsf-basis:VerlagId" minOccurs="0"/>
+									<xs:element ref="kdsf-basis:NameDerQuelleId" minOccurs="0"/>
+									<xs:element name="Identifier" type="xs:string" minOccurs="0"/>
+									<xs:element ref="kdsf-basis:FormatId" minOccurs="0"/>
+									<xs:element name="Sprachcode" type="xs:string" minOccurs="0"/>
+									<xs:element name="Zugangsrechte" type="xs:string" minOccurs="0"/>
+									<xs:element name="PeerReviewed" type="xs:boolean" minOccurs="0"/>
+									<xs:element ref="kdsf-basis:QualifikationsschriftId"
+										minOccurs="0"/>
 									<xs:element ref="kdsf-basis:DokumenttypId" minOccurs="0"/>
+									<xs:element ref="kdsf-basis:PublikationstypId" minOccurs="0"/>
+									<xs:element ref="kdsf-basis:DarstellungsformId" minOccurs="0"/>
+									<xs:element name="Foerderer" type="xs:string" minOccurs="0"/>
+									<xs:element name="FoerderkennzeichenDerPublikation"
+										type="xs:string" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-            <xs:element name="PublikationId" type="cf:cfId__Type" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="SchöpferId" type="cf:cfId__Type" minOccurs="0"/>
-			<xs:element name="PeerReviewed" type="xs:boolean" minOccurs="0"/>
-			<xs:element name="Veroeffentlichungsjahr" type="xs:gYear" minOccurs="0"/>
+						<xs:element maxOccurs="unbounded" name="entry" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Aggregationsniveau">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element ref="kdsf-basis:FachId" minOccurs="0"/>
+												<xs:element ref="kdsf-basis:ForschungsfeldId"
+												minOccurs="0"/>
+												<xs:element ref="kdsf-basis:cfOrgUnitId"
+												minOccurs="0"/>
+												<xs:element ref="kdsf-basis:PublikationstypId"
+												minOccurs="0"/>
+												<xs:element ref="kdsf-basis:DokumenttypId"
+												minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="PublikationId" type="cf:cfId__Type" minOccurs="0"
+							maxOccurs="unbounded"/>
+						<xs:element name="SchöpferId" type="cf:cfId__Type" minOccurs="0"/>
+						<xs:element name="PeerReviewed" type="xs:boolean" minOccurs="0"/>
+						<xs:element name="Veroeffentlichungsjahr" type="xs:gYear" minOccurs="0"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-  <xs:complexType name="Forschungsinfrastrukturen__Type">
+	<xs:complexType name="Forschungsinfrastrukturen__Type">
 		<xs:sequence>
 			<xs:element name="ListeDerForschungsinfrastrukturen">
 				<xs:complexType>
-          <xs:sequence>
-            <xs:element name="Ausdifferenzierung">
-              <xs:complexType>
-                <xs:sequence>
-          <xs:element name="Bezeichnung" type="xs:string" minOccurs="0"/>
-          <xs:element name="Beschreibung" type="xs:string" minOccurs="0"/> 
-          <xs:element ref="kdsf-basis:TypDerForschungsinfrastrukturId" minOccurs="0"/>
-          <xs:element ref="kdsf-basis:ArtDerForschungsinfrastrukturId" minOccurs="0"/>
-          <xs:element ref="kdsf-basis:ArtDesZugangsId" minOccurs="0"/>
-          <xs:element ref="kdsf-basis:Nutzung" minOccurs="0"/>
-          <xs:element name="Betreiberin" type="xs:string" minOccurs="0"/>
-          <xs:element name="Koordinatorin" type="xs:string" minOccurs="0"/>
-          <xs:element ref="kdsf-basis:BetriebspersonalId" minOccurs="0"/>
-          <xs:element name="Publikationen" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="Aggregationsniveau">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="ForschungsinfrastrukturId" type="cf:cfId__Type" minOccurs="0" maxOccurs="unbounded"/>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-          </xs:sequence>
+					<xs:sequence>
+						<xs:element name="Ausdifferenzierung">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Bezeichnung" type="xs:string" minOccurs="0"/>
+									<xs:element name="Beschreibung" type="xs:string" minOccurs="0"/>
+									<xs:element ref="kdsf-basis:TypDerForschungsinfrastrukturId"
+										minOccurs="0"/>
+									<xs:element ref="kdsf-basis:ArtDerForschungsinfrastrukturId"
+										minOccurs="0"/>
+									<xs:element ref="kdsf-basis:ArtDesZugangsId" minOccurs="0"/>
+									<xs:element ref="kdsf-basis:Nutzung" minOccurs="0"/>
+									<xs:element name="Betreiberin" type="xs:string" minOccurs="0"/>
+									<xs:element name="Koordinatorin" type="xs:string" minOccurs="0"/>
+									<xs:element ref="kdsf-basis:BetriebspersonalId" minOccurs="0"/>
+									<xs:element name="Publikationen" type="xs:string" minOccurs="0"
+										maxOccurs="unbounded"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Aggregationsniveau">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ForschungsinfrastrukturId"
+										type="cf:cfId__Type" minOccurs="0" maxOccurs="unbounded"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="Berichtsinformationen__Type">
+	<xs:complexType name="Berichtsinformationen__Type">
 		<xs:sequence>
 			<xs:element name="Einrichtung" type="xs:string"/>
 			<xs:element name="Datum" type="xs:date"/>
