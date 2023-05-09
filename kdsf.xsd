@@ -58,7 +58,21 @@
 	</xs:element>
 	<xs:complexType name="Beschaeftigte__Type">
 		<xs:sequence>
-			<xs:element name="Gesamtpersonal" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+			<xs:element name="Gesamtpersonal" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Ausdifferenzierung"> </xs:element>
+						<xs:element maxOccurs="unbounded" name="entry">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Aggregationsniveau"> </xs:element>
+									<xs:element name="Wert" type="xs:nonNegativeInteger"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="Vollzeitaequivalente" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
@@ -469,32 +483,62 @@
 			<xs:element name="SonstigeEinnahmen" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Aggregationsniveau" minOccurs="0">
+						<xs:element name="Ausdifferenzierung"> </xs:element>
+						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
+									<xs:element name="Aggregationsniveau" minOccurs="1">
+										<xs:complexType>
+											<xs:sequence minOccurs="0">
+												<xs:element ref="kdsf-basis:cfOrgUnitId"
+												minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Wert" type="kdsf-basis:Betrag__Type"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Wert" type="kdsf-basis:Betrag__Type"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element maxOccurs="unbounded" minOccurs="0" name="EinnahmenAusSondermitteln ">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Aggregationsniveau" minOccurs="0">
+						<xs:element name="Ausdifferenzierung"> </xs:element>
+						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element ref="kdsf-basis:cfOrgUnitId" minOccurs="0"/>
+									<xs:element name="Aggregationsniveau" minOccurs="1">
+										<xs:complexType>
+											<xs:sequence minOccurs="0">
+												<xs:element ref="kdsf-basis:cfOrgUnitId"
+												minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Wert" type="kdsf-basis:Betrag__Type"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Wert" type="kdsf-basis:Betrag__Type"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="Gesamtbudget" type="kdsf-basis:Betrag__Type" minOccurs="0"/>
+			<xs:element name="Gesamtbudget" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Ausdifferenzierung"> </xs:element>
+						<xs:element maxOccurs="unbounded" name="entry">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Aggregationsniveau" minOccurs="1"> </xs:element>
+									<xs:element name="Wert" type="kdsf-basis:Betrag__Type"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="Patente__Type">
@@ -540,6 +584,7 @@
 			<xs:element name="AnzahlDerPatentfamilien" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
+						<xs:element name="Ausdifferenzierung"> </xs:element>
 						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
@@ -565,6 +610,7 @@
 				maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
+						<xs:element name="Ausdifferenzierung"> </xs:element>
 						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
@@ -589,6 +635,7 @@
 			<xs:element name="AnzahlDerErteiltenPatente" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
+						<xs:element name="Ausdifferenzierung"> </xs:element>
 						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
@@ -613,6 +660,7 @@
 			<xs:element name="AnzahlAusgruendungen" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
+						<xs:element name="Ausdifferenzierung"> </xs:element>
 						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
@@ -637,6 +685,7 @@
 			<xs:element name="ErtraegeAusSchutzrechten" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
+						<xs:element name="Ausdifferenzierung"> </xs:element>
 						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
@@ -746,11 +795,18 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Aggregationsniveau">
+						<xs:element maxOccurs="unbounded" name="entry">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="ForschungsinfrastrukturId"
-										type="cf:cfId__Type" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="Aggregationsniveau">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ForschungsinfrastrukturId"
+												type="cf:cfId__Type" minOccurs="0"
+												maxOccurs="unbounded"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
