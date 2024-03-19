@@ -40,7 +40,7 @@
 	</xs:element>
 	<xs:complexType name="Beschaeftigte__Type">
     <xs:sequence>
-      <xs:element name="Gesamtpersonal" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Gesamtpersonal" type="xs:integer" minOccurs="0" maxOccurs="unbounded">
       </xs:element>
 			<xs:element name="Vollzeitaequivalente" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
