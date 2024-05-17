@@ -10,8 +10,9 @@ Das XML-Schema definiert ein Datenaustauschformat für den KDSF, das zum Austaus
 Das Schema besteht aus zwei Teilen:
 * [kdsf-basis.xsd](https://github.com/KFiD-G/KDSF/blob/main/kdsf-basis.xsd) (XML-Schema für die Basisdaten)
 * [kdsf.xsd](https://github.com/KFiD-G/KDSF/blob/main/kdsf.xsd) (XML-Schema für die Aggregatdaten)
-
 Darüber hinaus gibt es einige [Klassifikationsschemata](https://github.com/KFiD-G/KDSF/blob/main/kdsf-cerif-classes.xml), die gemäß dem CERIF-Standard definiert wurden. Die Klassifikationsschemata enthalten die für das deutsche Forschungssystem typischen Objekte (z.B. Personalkategorien, Mittelgeber). Ein XML-Dokument im Format des KDSF sollte diese Klassifikationsschemata benutzen. Die Klassifikationsschemata sind in [kdsf-cerif-classes.xml](https://github.com/KFiD-G/KDSF/blob/main/kdsf-cerif-classes.xml) definiert.
+### Bitte beachten Sie:
+Das exemplarisches Austauschformat ist möglicherweise unvollständig. Das XML-Schema für die Basisdaten ist keine vollständige Modellierung der Basisdaten, die für die Bildung der Aggregate des KDSF Version 1.3 notwendig sind. Das KDSF-Basisdatenmodell befindet sich Stand Mai 2024 in der Entwicklung. Maßgeblich für den KDSF sind derzeit die [Spezifikationstabelle](https://kerndatensatz-forschung.de/version1/Spezifikationstabelle_KDSF_v1.html) sowie die [Dokumentation des Standards](https://kerndatensatz-forschung.de/version1/Spezifikation_KDSF_v1.pdf).
 ## Formales Datenmodell (OWL)
 Die OWL-Dateien repräsentieren exemplarisch ein Datenmodell für den KDSF. Die Modellierung besteht aus drei Teilen:
 *	[kdsf.owl](https://github.com/KFiD-G/KDSF/blob/main/kdsf.owl) (Basismodell mit den grundlegenden Konzepten für Forschungsinformationen)
