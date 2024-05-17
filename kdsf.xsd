@@ -68,6 +68,8 @@
 									<xs:element name="Geschlecht" type="kdsf-basis:Geschlecht__Type"
 										minOccurs="0"/>
 									<xs:element ref="kdsf-basis:PersonalkategorieId" minOccurs="0"/>
+									<xs:element ref="kdsf-basis:ProfessurenbezeichnungId"
+										minOccurs="0"/>
 									<xs:element ref="kdsf-basis:FinanzierungsformId" minOccurs="0"/>
 									<xs:element name="QualifikationId" type="cf:cfId__Type"
 										minOccurs="0"/>
@@ -101,6 +103,8 @@
 									<xs:element name="Geschlecht" type="kdsf-basis:Geschlecht__Type"
 										minOccurs="0"/>
 									<xs:element ref="kdsf-basis:PersonalkategorieId" minOccurs="0"/>
+									<xs:element ref="kdsf-basis:ProfessurenbezeichnungId"
+										minOccurs="0"/>
 									<xs:element ref="kdsf-basis:FinanzierungsformId" minOccurs="0"/>
 									<xs:element name="QualifikationId" type="cf:cfId__Type"
 										minOccurs="0"/>
