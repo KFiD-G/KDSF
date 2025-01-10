@@ -23,6 +23,6 @@ Die OWL-Dateien repräsentieren exemplarisch ein Datenmodell für den KDSF Versi
 *	[kdsf-meta.owl](https://github.com/KFiD-G/KDSF/blob/main/kdsf-meta.owl) (Metamodell mit der Definition zweier Meta-Konstrukte, die in den Modellen genutzt werden)
 ### Bitte beachten Sie:
 Die Modellierung des KDSF in Gestalt der OWL-Dateien ist unvollständig und die IRIs lassen sich nicht derefenzieren. Eine formale Modellierung des KDSF Version 2.0 wird angestrebt. Maßgeblich für den KDSF ist das Datenmodell der Version 2.0.
-
+## Kontakt und Anfragendokumentation
 Die Geschäftsstelle der Kommission für Forschungsinformationen in Deutschland (KFiD) nimmt gern Ihre [Anfragen](https://kerndatensatz-forschung.de/hd_benutzer/index.php) zum KDSF-Standard und seinen Definitionen entgegen und dokumentiert ausgewählte Fragen und Antworten in einer öffentlich einsehbaren [Anfragendokumentation](https://kerndatensatz-forschung.de/index.php?id=anfragedoku).
 Für Rückmeldungen und Fragen, die unmittelbar die Dateien in diesem Repositorium betreffen, erstellen Sie bitte ein neues [Issue](https://github.com/KFiD-G/KDSF/issues). 
